@@ -510,6 +510,7 @@ section#token {
 .roadmap .left {
   height: 100%;
   border-right: 2px dotted #000;
+  padding-right: 50px;
 }
 
 .roadmap-left-card {
@@ -714,6 +715,7 @@ section#token {
   .roadmap .left {
     justify-content: center;
     border: none;
+    padding-right: 0;
   }
 
   
