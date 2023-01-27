@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracie | About Us</title>
+  <link rel="stylesheet" href="./../style/style.css">
+  <link rel="icon" type="image/png" href="../img/icon2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+</head>
+
+<body>
+  <header id="header">
+    <div class="container nav-container flex justify-between align-center">
+      <a href="./index.html">
+        <img src="../img/logo.png" class="img logo-img" height="50px" alt="Logo">
+      </a>
+      <nav id="nav" class="nav flex align-center justify-between">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about-us.html">About US</a></li>
+          <li><a href="./token-sale.html">Token Sale</a></li>
+          <li><a href="#">Contacts</a></li>
+        </ul>
+        <div id="crossBtn">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="header-btns">
+          <!-- <button class="btn nav-btn">Drowdown <i class="fa-solid fa-caret-down"></i></button> -->
+          <a href="https://docs.google.com/document/d/1DuMF8zlCzQ6R1CG3bmdbFycIER9VclhS70pLY_FZ1sg          ">
+            <button class="btn btn-dark nav-btn">Whitepaper</button>
+          </a>
+          <div>
+          </div>
+        </div>
+      </nav>
+
+      <div id="hamberger">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+
+  <section id="token" class="token">
+    <div class="token-container container">
+      <h1 class="section-head">Token Sale</h1>
+      <div class="token-card-container">
+        <div class="token-card card flex-column justify-around token-card-first">
+          <div class="token-card-1-details">
+            <h2 class="font-18 weight-600">TOTAL TOKEN SUPPLY</h2>
+            <p> <i>111,000,000 GRACE</i> </p>
+          </div>
+          <div class="token-card-1-details">
+            <h2 class="font-18 weight-600">EXCHANGE RATE</h2>
+            <p><i>1 GRACE = 0.60 USD</i></p>
+          </div>
+          <div class="token-card-1-details">
+            <h2 class="font-18 weight-600">SOFT CAP</h2>
+            <p><i>19,000,000 USD</i></p>
+          </div>
+          <div class="token-card-1-details">
+            <h2 class="font-18 weight-600">HARD CAP</h2>
+            <p><i>55,000,000 USD</i></p>
+          </div>
+          <div class="token-card-1-details">
+            <h2 class="font-18 weight-600">CONTRACT ADDRESS</h2>
+            <p><i class="small">0x4e5e17201f9553db36ecca0201526d27788c3e35</i></p>
+          </div>
+        </div>
+        <div class="token-card card">
+          <h2 class="font-18 weight-600 token-card-heading">DISTRIBUTION</h2>
+          <div class="pie-chart-container">
+            <div class="pie-chart"></div>
+          </div>
+          <div class="pie-details-container">
+            <div class="pie-details flex">
+              <div class="pie-details-box blue-box">50%</div>
+              <p>Public Sale</p>
+            </div>
+            <div class="pie-details flex">
+              <div class="pie-details-box secondary-yellow-box">40%</div>
+              <p>Stategic Reserve</p>
+            </div>
+            <div class="pie-details flex">
+              <div class="pie-details-box primary-yellow-box">10%</div>
+              <p>Founders</p>
+            </div>
+          </div>
+        </div>
+        <div class="token-card card token-card-last">
+          <h2 class="font-18 weight-600 token-card-heading">COUNTDOWN</h2>
+          <p><span id="weeks">56</span> weeks <span id="days">02</span> days <span id="hours">20</span> hours</p>
+          <div class="flex justify-center">
+            <button class="btn btn-dark">Register for Token Sale</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="p-2 flex justify-center">
+      <!-- <img src="./../img/footer.png" class="img" alt="Footer image"> -->
+    </div>
+    <div class="container flex footer-content">
+      <p>Website last updated: January 21, 2023</p>
+      <p class="copyright">All Rights Reserved © Gracie 2023.</p>
+    </div>
+  </footer>
+  <script src="./../app.js"></script>
+
+</body>
+
+</html>
