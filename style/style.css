@@ -11,6 +11,7 @@
   --blue-box: #335CFF;
   --shadow: #D1D2F9;
   --main-transition: .2s;
+  --main-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 * {
@@ -161,7 +162,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 75px;
+  height: 65px;
   background-color: var(--main-bg);
   max-width: 100%;
   box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.1);
@@ -201,11 +202,50 @@ body {
   border-bottom: 2px solid var(--primary-yellow);
 }
 
+ul li a:hover i {
+  color: var(--primary-yellow);
+}
+
 .hideNav {
   display: none !important;
 }
 
+#dropdown-btn {
+  color: var(--main-text);
+}
 
+.dropdown-btn i {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.dropdown-outer {
+  position: relative;
+}
+
+.dropdown-contents {
+  display: none;
+  position: absolute;
+  top: 30px;
+  padding: 0px 20px;
+  min-width: 150px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  box-shadow: var(--main-shadow)
+}
+
+.dropdown-text i {
+  font-size: 100%;
+  margin-left: 8px;
+}
+
+.dropdown-contents a {
+  margin: 20px 0;
+}
+
+.dropdown-outer:hover .dropdown-contents {
+  display: block;
+}
 
 /* ================= Hamberger Menu ====================== */
 #hamberger {
@@ -244,12 +284,22 @@ body {
 }
 
 /* ================= Hero ====================== */
+#hero {
+  padding-top: 65px;
+}
+
 .hero-welcome {
   height: 300px;
 }
 
-.title {
+.hero-welcome .title {
   font-size: 36px;
+  font-weight: 600;
+  line-height: 60px;
+}
+
+.hero-btn:hover {
+  transform: scale(1.03);
 }
 
 .card {
@@ -636,13 +686,15 @@ section#token {
     padding: 1rem 0;
   }
 
-  .logo-img {
-    height: 20px;
+  .dropdown-contents {
+    padding: 0px 20px;
+    top: 20px;
   }
 
+
+
   .header-btns {
-    justify-content: start;
-    align-items: flex-start;
+    flex-direction: column;
   }
 
   .header-btns button {
@@ -725,8 +777,7 @@ section#token {
   }
 
 
-
-  #header i {
+  #hamberger i {
     font-size: 30px;
   }
 

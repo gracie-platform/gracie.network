@@ -14,6 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -28,17 +29,22 @@
           <li><a href="./pages/about-us.html">About US</a></li>
           <li><a href="./pages/token-sale.html">Token Sale</a></li>
           <li><a href="#">Contacts</a></li>
+          <li class="dropdown-outer">
+            <a aria-disabled="true" class="dropdown-text">More <i class="fa-solid fa-caret-down"></i></a>
+            <div class="dropdown-contents">
+              <a href="">Services</a>
+              <a href="">Pricing</a>
+              <a href="">Testimonial</a>
+            </div>
+          </li>
         </ul>
         <div id="crossBtn">
           <i class="fa-solid fa-xmark"></i>
         </div>
-        <div class="header-btns">
-          <!-- <button class="btn nav-btn">Drowdown <i class="fa-solid fa-caret-down"></i></button> -->
+        <div class="header-btns flex">
           <a href="https://docs.google.com/document/d/1DuMF8zlCzQ6R1CG3bmdbFycIER9VclhS70pLY_FZ1sg          ">
             <button class="btn btn-dark nav-btn">Whitepaper</button>
           </a>
-          <div>
-          </div>
         </div>
       </nav>
 
@@ -56,7 +62,7 @@
         <h1 class="title text-center">How are you Feeling?</h1>
         <p class="subtitle text-center font-22">Gracie is an open protocol and index for happiness powered by Ethereum
         </p>
-        <button class="btn btn-yellow">Register for Token Sell</button>
+        <button class="btn btn-yellow hero-btn">Register for Token Sell</button>
       </div>
     </section>
     <section id="about">
@@ -162,7 +168,7 @@
       </div>
     </footer>
   </main>
-  <script src="./../app.js"></script>
+  <script src="./app.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
     var typed = new Typed('#auto-typed', {
