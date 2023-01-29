@@ -214,30 +214,29 @@ ul li a:hover i {
   color: var(--main-text);
 }
 
-.dropdown-btn i {
-  font-size: 20px;
-  margin-left: 10px;
-}
 
 .dropdown-outer {
   position: relative;
+  margin: 25px 0;
 }
 
 .dropdown-contents {
   display: none;
   position: absolute;
   top: 30px;
-  padding: 0px 20px;
   min-width: 150px;
   border-radius: 5px;
-  background-color: #f0f0f0;
-  box-shadow: var(--main-shadow)
 }
 
-.dropdown-text i {
-  font-size: 100%;
-  margin-left: 8px;
+@media only screen and (min-width: 1150px) {
+  .dropdown-contents {
+    background-color: var(--main-bg);
+    left: -20px;
+    padding-left: 20px;
+  }
+
 }
+
 
 .dropdown-contents a {
   margin: 20px 0;
@@ -258,12 +257,6 @@ ul li a:hover i {
   margin-right: 5px;
 }
 
-.ham-stick {
-  height: 5px;
-  width: 30px;
-  background-color: #000;
-  border-radius: 3px;
-}
 
 #crossBtn {
   display: none;
@@ -285,7 +278,7 @@ ul li a:hover i {
 
 /* ================= Hero ====================== */
 #hero {
-  padding-top: 65px;
+  padding-top: 60px;
 }
 
 .hero-welcome {
@@ -692,6 +685,26 @@ section#token {
   }
 
 
+  .dropdown-text {
+    display: none;
+  }
+
+  .dropdown-contents {
+    position: static;
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  .dropdown-contents a {
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  .dropdown-contents a:last-child {
+    margin-bottom: 0;
+  }
+
 
   .header-btns {
     flex-direction: column;
@@ -709,7 +722,7 @@ section#token {
     padding-left: 0;
   }
 
-  .nav ul li {
+  .nav ul li:not(:last-child) {
     margin-bottom: 1rem;
   }
 
@@ -820,7 +833,7 @@ section#token {
 
 
   .roadmap .right {
-    padding-left: 3rem;
+    padding-left: 20px;
   }
 
   .roadmap-card {
