@@ -223,7 +223,7 @@ ul li a:hover i {
 .dropdown-contents {
   display: none;
   position: absolute;
-  top: 30px;
+  top: 25px;
   min-width: 150px;
   border-radius: 5px;
 }
@@ -233,6 +233,7 @@ ul li a:hover i {
     background-color: var(--main-bg);
     left: -20px;
     padding-left: 20px;
+    box-shadow: var(--main-shadow);
   }
 
 }
