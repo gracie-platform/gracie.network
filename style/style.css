@@ -165,7 +165,7 @@ body {
   height: 65px;
   background-color: var(--main-bg);
   max-width: 100%;
-  box-shadow: 0px 2px 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -269,7 +269,7 @@ ul li a:hover i {
 /* ==================== Global =============*/
 
 .container {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: auto;
 }
 
@@ -507,6 +507,7 @@ section#token {
   height: 400px;
   margin-left: 1rem;
   margin-right: 4rem;
+  cursor: default !important;
 }
 
 .roadmap-left-card-title {
@@ -521,6 +522,38 @@ section#token {
 .newsletter-btn {
   width: 100%;
   margin-top: 1rem;
+}
+
+.signup {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  height: 51px;
+  box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.signup input {
+  border: none;
+  outline: none;
+  color: var(--seconday);
+}
+
+.signup input:focus {
+  border: none;
+}
+
+.signup-btn {
+  height: 40px;
+  width: 40px;
+  border: none;
+  background-color: var(--primary-yellow);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.signup i {
+  font-size: 20px;
 }
 
 .roadmap .right {

@@ -51,7 +51,7 @@
   </header>
   <main>
     <section id="hero" class="container">
-      <div class="p-2">
+      <div>
         <img src="./img/hero.png" class="img" alt="hero image">
       </div>
       <div class="hero-welcome flex-column align-center justify-around">
@@ -91,7 +91,13 @@
           <h1 class="roadmap-left-card-title font-30 weight-600">Roadmap</h1>
           <div class="roadmap-left-card-dec">
             <p><i>Subscribe to our mailing list and read about our latest developments</i></p>
-            <a href=""><button class="btn btn-dark newsletter-btn">Sign up</button></a>
+            <!-- <a href=""><button class="btn btn-dark newsletter-btn">Sign up</button></a> -->
+            <form class="signup flex justify-between align-center">
+              <input type="text" placeholder="Enter your email address">
+              <button type="submit" class="signup-btn">
+                <i class="fa-regular fa-paper-plane"></i>
+              </button>
+            </form>
           </div>
         </div>
       </div>
