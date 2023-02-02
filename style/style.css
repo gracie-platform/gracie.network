@@ -311,7 +311,7 @@ ul li a:hover i {
 /* ================= About ====================== */
 section#about,
 section#token {
-  border-bottom: 2px dashed #000;
+  /*border-bottom: 2px dashed #000;*/
   padding: 50px 0 150px 0;
   margin-bottom: 3rem;
 }
@@ -674,7 +674,7 @@ section#token {
 }
 
 .footer-content {
-  border-top: 2px solid #000;
+  /*border-top: 2px solid #000;*/
   margin: auto;
   margin-top: 1rem;
   padding: 1rem 3rem;
