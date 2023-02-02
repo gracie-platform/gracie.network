@@ -301,7 +301,7 @@ ul li a:hover i {
   box-shadow: 0 20px 25px 5px rgb(0 0 0 / 0.2),
     10px 10px #D1D2F9;
   cursor: pointer;
-  margin-right: 20px !important;
+  /* margin-right: 20px !important; */
 }
 
 .card:hover {
@@ -791,15 +791,13 @@ section#token {
 
 @media only screen and (max-width: 500px) {
 
-  .token-card,
-  .roadmap-left-card {
-    /* width: 300px; */
+  .token-card {
     padding-left: 10px;
     padding-right: 10px;
   }
 
   .left {
-    padding: 0;
+    padding: 1rem;
   }
 
   .contact-quote,
@@ -810,22 +808,26 @@ section#token {
 
 @media only screen and (max-width: 800px) {
 
+  .container {
+    padding: 1rem;
+  }
+
   #header {
-    height: 40px;
+    height: 50px;
   }
 
   .logo-img {
-    height: 30px;
+    height: 40px;
   }
 
   .nav {
-    height: calc(100vh - 40px);
-    top: 40px;
+    height: calc(100vh - 50px);
+    top: 50px;
   }
 
 
   #hamberger i {
-    font-size: 30px;
+    font-size: 35px;
   }
 
   .about-container,
@@ -851,7 +853,7 @@ section#token {
   }
 
   .about-desc {
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
     text-align: left;
   }
 
@@ -867,7 +869,7 @@ section#token {
 
 
   .roadmap .right {
-    padding-left: 20px;
+    /* padding-left: 20px; */
   }
 
   .roadmap-card {
@@ -877,9 +879,8 @@ section#token {
   }
 
   .roadmap-left-card {
-    margin: 1rem;
-    margin-left: 0;
-    padding: 1rem;
+    margin: 1rem 0;
+    padding: 2rem;
   }
 
 
