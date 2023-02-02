@@ -301,7 +301,7 @@ ul li a:hover i {
   box-shadow: 0 20px 25px 5px rgb(0 0 0 / 0.2),
     10px 10px #D1D2F9;
   cursor: pointer;
-  margin-right: 20px !important;
+  /* margin-right: 20px !important; */
 }
 
 .card:hover {
@@ -791,8 +791,7 @@ section#token {
 
 @media only screen and (max-width: 500px) {
 
-  .token-card,
-  .roadmap-left-card {
+  .token-card {
     padding-left: 10px;
     padding-right: 10px;
   }
