@@ -768,25 +768,6 @@ section#token {
     font-size: 15px;
   }
 
-  #crossBtn {
-    display: block;
-    height: 30px;
-    width: 30px;
-    background-color: #aaa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-
-  #crossBtn i {
-    font-size: 20px;
-  }
-
 }
 
 @media only screen and (max-width: 500px) {
