@@ -45,7 +45,7 @@ a {
 
 .nav-btn {
   padding: .5rem 2rem;
-  margin-left: 1rem;
+  margin-left: 0;
 }
 
 .btn-yellow {
@@ -708,8 +708,8 @@ section#token {
     right: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: start;
     padding: 1rem 0;
   }
 
