@@ -700,7 +700,7 @@ section#token {
   }
 
   .nav {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     width: 200px;
     height: calc(100vh - 60px);
     top: 60px;
@@ -709,8 +709,8 @@ section#token {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: start;
-    padding: 1rem 0;
+    justify-content: center;
+    padding: 0;
   }
 
   .dropdown-contents {
