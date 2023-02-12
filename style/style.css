@@ -45,7 +45,7 @@ a {
 
 .nav-btn {
   padding: .5rem 2rem;
-  margin-left: 0;
+  margin-left: 1rem;
 }
 
 .btn-yellow {
@@ -710,7 +710,7 @@ section#token {
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    padding: 1rem 0;
+    padding: 0;
   }
 
   .dropdown-contents {
