@@ -828,7 +828,6 @@ ul li a:hover {
   .team-header {
     height: 200px;
     display: flex;
-    background-image: url('img/mobile/team-header-blank-200-mobile.png');
   }
 
   .team-card-container {
