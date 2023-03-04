@@ -6,6 +6,6 @@
 [] we want the footer to scroll snap everywhere on the site, currently it does not work on the about page or team pages.
 [] increase size of team page team member images and align left "for reference see https://www.mesh.xyz/team for sizing and alignment"
 [] team page body needs more whitespace to fill screen currently the footer is visible, we dont want this.
+[] team page on mobile, content and text needs margin like about page.
 [] can we please replace the first image content box on the home page, and embed this video and auto play? https://youtu.be/4UNDYDzkK6o
-[] we want the make the about page more readable for mobile, like https://www.mesh.xyz/about adding expanding content for our services, mission, values and vision.
-[] team page on mobile, content and text needs margin like about page, not sure why its different.
+[] we want the make the about page more readable for mobile, like https://www.mesh.xyz/about adding expanding content for our services, mission, values and vision headings.
