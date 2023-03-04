@@ -544,16 +544,13 @@ main>footer {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: center;
+  align-items: left;
   padding: 50px 0;
 }
 
 .team-header {
-  height: 300px;
+  height: 200px;
   display: flex;
-  background-image: url('img/team/team-header-blank.png');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .team-header h1 {
@@ -644,7 +641,7 @@ main>footer {
   max-height: 600px;
   width: 320px;
   background-color: #fb9bcb;
-  border-radius: 30px;
+  border-radius: 5px;
   display: none;
   animation: popup 2s;
   animation-fill-mode: forwards;
@@ -658,7 +655,7 @@ main>footer {
 
 .team-popup-container .team-popup-img img {
   width: 330px;
-  border-radius: 30px 30px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .popup-close {
@@ -793,7 +790,6 @@ ul li a:hover {
 
 .footer-copyright {
   padding: 20px 10px;
-  font-size: 1rem;
 }
 
 /* ========================== RESPONSIVE =========================== */
