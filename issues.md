@@ -4,8 +4,9 @@
 [] navigation menu only hides when you click the menu button or other links, it should close when other parts of the page are clicked (like blankspace).
 [] background blur transition is lost on mobiles; why is this?
 [] we want the footer to scroll snap everywhere on the site, currently it does not work on the about page or team pages.
-[] team page member images should scale with window size and have left alignment "for reference see https://www.mesh.xyz/team for sizing and alignment"
+[] increase size of team page team member images and align left "for reference see https://www.mesh.xyz/team for sizing and alignment"
+[] we want header text on each page to align left like mesh.xyz
 [] team page body needs more whitespace to fill screen currently the footer is visible, we dont want this.
-[] align header text with start of team pictures, which should now align left.
-[] can we please replace the first image content box on the home page, and auto play this video https://youtu.be/4UNDYDzkK6o, 
+[] content for team page should align with the header text, it does not.
+[] can we please replace the first image content box on the home page, and embed this video and auto play? https://youtu.be/4UNDYDzkK6o
 [] we want the make the about page more readable for mobile, like https://www.mesh.xyz/about adding expanding content for our services, mission, values and vision.
