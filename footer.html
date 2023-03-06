@@ -1,10 +1,12 @@
 <div class="h-full container flex-col justify-center">
   <div class="newsletter items-center">
     <h1>Get Platform Updates to Your Inbox</h1>
+    <form action="https://us-central1-propane-tribute-331819.cloudfunctions.net/news-sub" method="post">
     <div class="newsletter-inner">
-      <input type="email" class="newsletter-input" placeholder="e.g. hello@gracie.network">
-      <button class="button-10">Subscribe</button>
+      <input type="email" class="newsletter-input" placeholder="e.g. hello@gracie.network" required>
+      <button class="button-10" button type="submit">Subscribe</button>
     </div>
+    </form>
   </div>
   <div class="footer-links w-full flex justify-between">
     <div>
