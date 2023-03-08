@@ -749,7 +749,7 @@ main>footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
-  padding-bottom: 50px;
+  padding-bottom: 25px;
 }
 
 .newsletter .newsletter-inner {
@@ -898,6 +898,14 @@ ul li a:hover {
     grid-template-columns: 1fr;
   }
 
+  .left { 
+    align-self: self-end;
+  }
+
+  .right { 
+    align-self: self-start;
+  }
+
   .section-title {
     font-size: 24px;
   }
@@ -941,7 +949,4 @@ ul li a:hover {
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
   }
-
-
-  
 }
