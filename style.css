@@ -560,7 +560,7 @@ main>footer {
 
 .section-title {
   font-size: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .team-card-container {
@@ -781,7 +781,7 @@ ul li a:hover {
 }
 
 .footer-logo {
-  padding: 30px 0;
+  padding: 20px 0;
 }
 
 .footer-logo img {
@@ -789,7 +789,7 @@ ul li a:hover {
 }
 
 .footer-copyright {
-  padding: 20px 10px;
+  padding: 0px 10px;
 }
 
 /* ========================== RESPONSIVE =========================== */
