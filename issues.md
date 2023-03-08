@@ -9,4 +9,5 @@
 - [ ] team page : body needs more whitespace to fill screen currently the footer is visible, we dont want this.
 - [ ] team page : on mobile, content and text needs 10px padding on left side like other pages.
 - [x] index page : can we please replace the first image content box on the home page, and embed this video and auto play? https://youtu.be/4UNDYDzkK6o
+- [ ] index page : on mobile after you scroll down the background image from the header section disapears.
 - [ ] about page : we want the make the about page more readable for mobile, like https://www.mesh.xyz/about adding expanding content for our services, mission, values and vision headings.
