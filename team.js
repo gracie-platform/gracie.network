@@ -1,10 +1,9 @@
 const teamContainer = document.getElementById('team-container')
 
 const teamMembers = [
-  { imageSrc: "img/team/member1.png", name: "Fraser Smith", designation: "Founder", twitter: "", linkedin: "https://www.linkedin.com/in/frasersmith/", details: "Bio" },
-  { imageSrc: "img/team/member2.png", name: "Xavier", designation: "Developer", twitter: "", linkedin: "", details: "Bio" },
-  { imageSrc: "img/team/member3.png", name: "Diana Geraissati", designation: "User Experience", twitter: "", linkedin: "", details: "Bio" },
-  { imageSrc: "img/team/member4.png", name: "Buse Akboga", designation: "Behavioral Analyst", twitter: "", linkedin: "", details: "Bio" },
+  { imageSrc: "img/team/member1.png", name: "Fraser Smith", designation: "Founder", twitter: "https://twitter.com/frankiebarns", linkedin: "https://www.linkedin.com/in/frasersmith/", details: "Bio" },
+  { imageSrc: "img/team/victor.jpeg", name: "Victor Weibe", designation: "Blockchain Advisor", twitter: "", linkedin: "https://www.linkedin.com/in/victorwiebe1/", details: "Bio" },
+  { imageSrc: "img/team/member2.png", name: "Xavier O'Farrel ", designation: "Data Analyst", twitter: "", linkedin: "https://www.linkedin.com/in/xavier-o-farrell-a8915016b/", details: "Bio" },
 ];
 
 
