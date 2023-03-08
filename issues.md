@@ -1,5 +1,5 @@
 - [x] footer sizing should be fixed across pages, it changes on the About Page.
-- menu button text is not the same as the rest of the nav menu, please increase to match.
+- [ ] menu button text is not the same as the rest of the nav menu, please increase to match.
 - can we also make the buttons all the same size
 - can you add a button transition to the Menu Button so it turns into a big "X" after it has been clicked.
 - navigation menu only hides when you click the menu button or other links, it should close when other parts of the page are clicked (like blankspace).
