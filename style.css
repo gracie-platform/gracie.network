@@ -3,7 +3,7 @@
   --secondary-yellow: #FFD014;
   --pie-hover: #E6B800;
   --main-bg: #fff;
-  --main-text: #222;
+  --main-text: #111;
   --dark-bg: #000;
   --main-white: #fff;
   --icon-color: #4ec2f9;
@@ -35,7 +35,7 @@ h5,
 h6,
 p,
 a {
-  color: #222;
+  color: #111111;
 }
 
 h1,
@@ -622,7 +622,7 @@ main>footer {
   }
 
   100% {
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
   }
 }
 
@@ -633,22 +633,22 @@ main>footer {
 
 
 .card-hover-brief>* {
-  color: white;
+  font-size: 20px;
+  color: #fb9bcb;
+  font-family: 'Magical_Night', 'Open Sans', sans-serif;
+  text-transform: uppercase;
 }
 
 .member-name {
-  font-size: 30px;
-  font: bolder;
+  font-size: 40px;
+  color: #fb9bcb;
+  font-family: 'Magical_Night', 'Open Sans', sans-serif;
+  text-transform: uppercase;
 }
 
-.card-hover-brief .member-name {
-  color: white;
+.popup-head {
+  text-transform: uppercase
 }
-
-
-
-
-
 .team-popup-container {
   position: fixed;
   top: 50%;
