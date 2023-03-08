@@ -37,7 +37,7 @@
   line-height: 50px;
 }
 
-.about-hero-container .about-left>p {
+.about-hero-container .about-left {
   font-size: 30px;
   line-height: 40px;
   font-weight: bold;
@@ -115,6 +115,7 @@
 .about-values .core-values,
 .about-mission .core-mission {
   height: 100%;
+  background-image: url('img/about/web-square4-transparent.png');
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -320,5 +321,4 @@
   height: 100vh;
   scroll-snap-type: y mandatory;
   scroll-snap-align: start;
-  font-size: 1rem;
 }
