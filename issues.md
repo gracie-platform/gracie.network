@@ -1,12 +1,13 @@
-- footer sizing should be fixed across pages, it changes on the About Page.
-- menu button text is not the same as the rest of the nav menu, please increase to match.
-- can we also make the buttons all the same size
-- can you add a button transition to the Menu Button so it turns into a big "X" after it has been clicked.
-- navigation menu only hides when you click the menu button or other links, it should close when other parts of the page are clicked (like blankspace).
-- background blur transition is lost on mobiles; why is this? see mesh.xyz.
-- we want the footer to scroll snap everywhere on the site, currently it does not work on the about page or team pages.
-- increase size of team page team member images and align left "for reference see https://www.mesh.xyz/team for sizing and alignment"
-- team page body needs more whitespace to fill screen currently the footer is visible, we dont want this.
-- team page on mobile, content and text needs margin like about page.
-- can we please replace the first image content box on the home page, and embed this video and auto play? https://youtu.be/4UNDYDzkK6o
-- we want the make the about page more readable for mobile, like https://www.mesh.xyz/about adding expanding content for our services, mission, values and vision headings.
+- [x] footer: footer sizing should be fixed across pages, it changes on the About Page.
+- [ ] nab menu : menu button text is not the same size as the rest of the nav menu, please increase to match.
+- [ ] nav menu : can we also make the buttons all the same size (maximum width the same as whitepaper)
+- [ ] nav menu : can you add a button transition to the Menu Button so it turns into a big "X" after it has been clicked.
+- [ ] nav menu : navigation menu only hides when you click the menu button or other links, it should close when other parts of the page are clicked (like blankspace).
+- [ ] nav menu : background blur transition is lost on mobiles; why is this? see mesh.xy for example of it working.
+- [ ] footer : we want the footer to scroll snap everywhere on the site, currently it does not work on the about page or team pages.
+- [ ] team page: increase size of team page team member images on desktop and align left "for reference see https://www.mesh.xyz/team for sizing and alignment", Note that we dont want to align left on mobile, there should be 2 columns.
+- [ ] team page : body needs more whitespace to fill screen currently the footer is visible, we dont want this.
+- [ ] team page : on mobile, content and text needs 10px padding on left side like other pages.
+- [x] index page : can we please replace the first image content box on the home page, and embed this video and auto play? https://youtu.be/4UNDYDzkK6o
+- [ ] index page : on mobile after you scroll down the background image from the header section disapears.
+- [ ] about page : we want the make the about page more readable for mobile, like https://www.mesh.xyz/about adding expanding content for our services, mission, values and vision headings.
