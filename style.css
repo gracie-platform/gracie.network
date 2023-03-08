@@ -773,7 +773,7 @@ ul li a:hover {
 }
 
 .footer-links {
-  padding: 50px 10px 20px;
+  padding: 20px 10px 20px;
   /* padding-top: 50px; */
   /* padding-bottom: 20px; */
   border-top: 1px solid #aaa;
@@ -879,7 +879,7 @@ ul li a:hover {
   }
 
   .section-subtitle {
-    margin-top: 10px;
+    margin-top: 2px;
   }
 
   .token-card,
