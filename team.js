@@ -1,9 +1,10 @@
 const teamContainer = document.getElementById('team-container')
 
 const teamMembers = [
-  { imageSrc: "img/team/member1.png", name: "Fraser Smith", designation: "Founder", twitter: "https://twitter.com/frankiebarns", linkedin: "https://www.linkedin.com/in/frasersmith/", details: "An accomplished Cloud Computing and Consultant, Fraser comes with more than 10 years of experience in IT, with time spent in Pre-Sales, Management and Engineering, He has several years working closely with fintech application development and has been an advocate of cryptocurrencies since 2017." },
-  { imageSrc: "img/team/victor.jpeg", name: "Victor Weibe", designation: "Blockchain Advisor", twitter: "", linkedin: "https://www.linkedin.com/in/victorwiebe1/", details: "Bio" },
-  { imageSrc: "img/team/member2.png", name: "Xavier O'Farrel ", designation: "Data Analyst", twitter: "", linkedin: "https://www.linkedin.com/in/xavier-o-farrell-a8915016b/", details: "Bio" },
+  { imageSrc: "img/team/fraser.png", name: "Fraser Smith", designation: "Founder & CTO", twitter: "https://twitter.com/frankiebarns", linkedin: "https://www.linkedin.com/in/frasersmith/", details: "An accomplished Cloud Systems Engineer and Consultant, Fraser comes with more than 10 years of tenure in IT, with focused experience in Sales, Management and Engineering. Most recently he has worked in application development for foreign exchanges and leading Australian banks and has been an advocate of cryptocurrencies since 2017." },
+  { imageSrc: "img/team/victor.jpg", name: "Victor Weibe", designation: "Blockchain Advisor", twitter: "", linkedin: "https://www.linkedin.com/in/victorwiebe1/", details: "Bio" },
+  { imageSrc: "img/team/xavier.jpg", name: "Xavier O'Farrel", designation: "Data Analyst", twitter: "", linkedin: "https://www.linkedin.com/in/xavier-o-farrell-a8915016b/", details: "Bio" },
+  { imageSrc: "img/team/julian.jpg", name: "Julian Loth ", designation: "Business Development", twitter: "", linkedin: "https://www.linkedin.com/in/julian-loth-0b12b31a8/", details: "Bio" },
 ];
 
 const menuOuter = document.getElementById("menu-outer")
@@ -31,7 +32,6 @@ teamMembers.forEach(member => {
   cardHoverBreif.appendChild(name);
 
   const designation = document.createElement("p");
-  name.classList.add('member-designation');
   designation.innerText = member.designation;
   cardHoverBreif.appendChild(designation);
 

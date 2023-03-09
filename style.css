@@ -634,14 +634,14 @@ main>footer {
 
 .card-hover-brief>* {
   font-size: 20px;
-  color: #fb9bcb;
+  color: #f761ac;
   font-family: 'Magical_Night', 'Open Sans', sans-serif;
   text-transform: uppercase;
 }
 
 .member-name {
   font-size: 40px;
-  color: #fb9bcb;
+  color: #f761ac;
   font-family: 'Magical_Night', 'Open Sans', sans-serif;
   text-transform: uppercase;
 }
@@ -684,7 +684,7 @@ main>footer {
 }
 
 .popup-close i {
-  color: #fff;
+  color: #fb9bcb;
   font-size: 35px;
   transition: .3s;
 }
