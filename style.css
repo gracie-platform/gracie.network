@@ -309,6 +309,21 @@ main>footer {
   scroll-snap-align: start;
 }
 
+
+/*========================== ERROR =========================== */
+.error-img-container {
+  max-width: 500px;
+  padding: 20px 20px;
+  margin: 20px 20px;
+}
+
+#error {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+
+}
+
 /* ========================== END OF GLOBAL STYLES =========================== */
 
 /*========================== HERO =========================== */
@@ -445,6 +460,7 @@ main>footer {
   background-color: var(--primary-grey);
   padding: 1rem 2rem;
 }
+
 
 .token-card-first {
   margin-left: 1rem;
