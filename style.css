@@ -887,6 +887,11 @@ ul li a:hover {
     max-width: calc(100vw - 5px);
   } */
 
+  h1 {font-size: 30px;}
+  h2 {font-size: 22px;}
+  h3 {font-size: 17px;}
+  h4 {font-size: 22px;}
+
   .menuBtn-outer {
     right: 5px;
   }
