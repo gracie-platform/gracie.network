@@ -33,6 +33,9 @@
 h1,
 h3,
 h3,
+h4,
+h5,
+h6,
 p,
 a {
   color: #111111;
@@ -41,7 +44,9 @@ a {
 h1,
 h2,
 h3,
-h4
+h4,
+h5,
+h6
 {
   font-family: 'Magical_Night', 'Open Sans', sans-serif;
 }
@@ -50,6 +55,7 @@ h1 {font-size: 60px;}
 h2 {font-size: 40px;}
 h3 {font-size: 22px;}
 h4 {font-size: 30px;}
+h5 {font-size: 20px;}
 
 .container {
   max-width: 1300px;
@@ -729,7 +735,6 @@ main>footer {
 
 /* ========================== FOOTER =========================== */
 #footer {
-  padding-top: 100px;
   height: 100vh;
   min-height: 100vh;
   background-color: #eee;
@@ -888,9 +893,10 @@ ul li a:hover {
   } */
 
   h1 {font-size: 30px;}
-  h2 {font-size: 22px;}
-  h3 {font-size: 17px;}
-  h4 {font-size: 22px;}
+  h2 {font-size: 27px;}
+  h3 {font-size: 22px;}
+  h4 {font-size: 20px;}
+  h5 {font-size: 18px;}
 
   .menuBtn-outer {
     right: 5px;
@@ -913,7 +919,7 @@ ul li a:hover {
   }
   .section-subtitle {
     margin-top: 2px;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .token-card,
