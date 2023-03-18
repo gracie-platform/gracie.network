@@ -96,6 +96,16 @@
         transform: translate(150px, -17vh);
       }
     }
+
+    @media only screen and (min-width: 1000px) {
+      .inner-container {
+        height: 40vh;
+      }
+
+      .bottom-container {
+        height: calc(60vh - 12px);
+      }
+    }
   </style>
 </head>
 
@@ -117,7 +127,7 @@
       </section>
     </div>
 
-    <div class="inner-container w-screen bottom-container" style="background-color: #eee;">
+    <div class="inner-container w-screen bottom-container flex-col gap-3" style="background-color: #eee;">
 
       <div class="retry-container">
         <a href="./index.html" class="button-10">
@@ -130,14 +140,9 @@
         </div>
       </section>
 
-      <div class="container-sm flex-col justify-center" style="padding: 0;">
-        <div class="footer-links w-full flex justify-between" style="border: none; padding: 0 0 5px ;">
-          <div class="w-full flex gap-2 justify-around">
-            <a href="index.html">Home</a>
-            <p class="center"> &copy; </span> Gracie <span id="copyright-year"></span></p>
-          </div>
-        </div>
-
+      <div class="w-full container-sm  flex gap-2 justify-around">
+        <a href="index.html">Home</a>
+        <p class="center"> &copy; </span> Gracie <span id="copyright-year"></span></p>
       </div>
     </div>
 

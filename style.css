@@ -327,8 +327,6 @@ main>footer {
 /*========================== ERROR =========================== */
 .error-img-container {
   max-width: 500px;
-  padding: 20px 20px;
-  /* margin: 20px 20px; */
 }
 
 #error {
