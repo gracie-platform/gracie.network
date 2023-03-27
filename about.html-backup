@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./img/icons/favicon.ico" />
+  <title>Gracie</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+  <header id="header"></header>
+
+  <section class="about-hero">
+    <div class="about-header">
+      <div class="container">
+        <h1>About</h1>
+      </div>
+    </div>
+    <div class="about-hero-container container">
+      <div class="hero-left about-left">
+        <p>GRACIE…BUILDING FOR THE PEOPLE, PROSPERITY, PARTNERSHIPS, THE PLANET AND PEACE
+          <br> WE HELP ORGANIZATIONS
+          EMOTIONALLY CONNECT WITH THEIR PEOPLE
+        </p>
+      </div>
+      <div class="hero-right about-right">
+        <h1 class="hero-right-title service-heading">AN OPEN PLATFORM AND HAPPINESS INDEX.</h1>
+        <p>
+          Gracie helps cultivate happier and more productive organizations by collecting personal satisfaction data and
+          connecting users with services.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-services container">
+    <div>
+      <div class="about-section-header about-service-header">
+        <h1>services</h1>
+      </div>
+    </div>
+    <div class="about-services-card-container">
+      <div class="about-service-card">
+        <h2 class="service-heading">WORKPLACE WELL-BEING</h2>
+        <p class="service-details">
+          Organizations can request feedback on the well-being of their workforces, fostering happier and more
+          productive workplaces.
+        </p>
+      </div>
+      <div class="about-service-card">
+        <h2 class="service-heading">CUSTOMER FEEDBACK</h2>
+        <p class="service-details">
+          Merchants and service providers can quickly capture insights into the well-being of their customers and
+          clients by receiving feedback following specific interactions or purchases.
+        </p>
+      </div>
+      <div class="about-service-card">
+        <h2 class="service-heading">WELLNESS CONSULTING</h2>
+        <p class="service-details">
+          We provide expert knowledge and advice from leading clinical psychologists, behavioral economists and cultural
+          anthropologists to help you on your well-being journey.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-values container">
+    <div class="values-header-container">
+      <div class="about-section-header about-values-header">
+        <h1>values</h1>
+      </div>
+    </div>
+    <div class="about-values-content">
+      <div>
+        <p>
+          Honesty in taking responsibility for not only ourselves but each other, as we are all connected.Humility in
+          valuing authenticity and silent celebrations.Honor in being conscious of others, their boundaries, and their
+          wishes.Grace in thinking about the bigger picture of our shared path with full awareness.
+        </p>
+      </div>
+      <div class="core-values">
+        <h1>HONESTY, HUMILITY, HONOR & GRACE.</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-vision container">
+    <div>
+      <div class="about-section-header about-vision-header">
+        <h1>Vision</h1>
+      </div>
+    </div>
+    <div class="vision-cotent">
+      <div class="vision-left">
+        <h1 class="service-heading">
+          TO CONNECT WITH EVERYONE'S EMOTIONS.
+        </h1>
+      </div>
+      <div class="vision-right">
+        <p>
+          We see a world that listens when you choose to share your feelings.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-mission container">
+    <div class="mission-header-container">
+      <div class="about-section-header about-mission-header">
+        <h1>mission</h1>
+      </div>
+    </div>
+    <div class="mission-content">
+      <div class="core-mission">
+        <h1 class="core-mission-title">
+          INCREASE EMOTIONAL AWARENESS AND INTELLIGENCE GLOBALLY.
+        </h1>
+      </div>
+      <div class="mission-details">
+        <p>
+          Cultivate a future of empathy, compassion, and support, by building a platform that connects others with your
+          emotions so they can build products to support your feelings.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+
+  <div id="menu-outer" class="bg-blur"></div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

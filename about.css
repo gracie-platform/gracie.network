@@ -47,7 +47,9 @@
   font-size: 40px;
   line-height: 60px;
 }
-
+.about-header-icon{
+  display: none;
+}
 /* ========================== ABOUT SERVICES =========================== */
 .about-services {
   display: flex;
@@ -201,7 +203,57 @@
     padding: 10px 5px;
     background-image: url(img/mobile/about-header-blank-200-mobile.png);
   }
-
+  .about-section-header-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .about-section-header{
+    cursor: pointer;
+  }
+  .about-header-icon{
+    display: block;
+  }
+  .rotate-about-header-icon{
+    transform: rotate(45deg);
+    transition: transform .5s ease;
+  }
+  .about-header-icon img{
+    width: 30px;
+    height: 30px;
+  }
+  .about-services-card-container,.about-values-content,.vision-cotent,.mission-content{
+    max-height: 0;
+    overflow: hidden;
+  }
+  .expanded-services{
+    max-height: 445px;
+    transition: max-height .5s ease;
+  }
+  .expanded-values{
+    max-height: 338px;
+    transition: max-height .5s ease;
+  }
+  .expanded-vision{
+    max-height: 170px;
+    transition: max-height .5s ease;
+  }
+  .about-mission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 10px;
+    padding-bottom: 30px;
+  }
+  .expanded-mission{
+    max-height:260px;
+    transition: max-height .5s ease;
+  }
+  .values-header-container{
+    /*justify-content: left;*/
+  }
   .about-hero-container {
     grid-template-columns: 1fr;
     padding: 10px;
@@ -314,11 +366,4 @@
     grid-template-columns: 1fr;
   }
 
-}
-
-
-#footer {
-  height: 100vh;
-  scroll-snap-type: y mandatory;
-  scroll-snap-align: start;
 }
