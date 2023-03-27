@@ -22,14 +22,12 @@
 
 .about-hero-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
   padding: 25px 0px;
 }
 
 .about-hero-container .about-right {
-  grid-column: span 2;
-  height: auto;
 }
 
 .hero-right-title {
@@ -38,8 +36,6 @@
 }
 
 .about-hero-container .about-left {
-  grid-column: span 2;
-  height: auto;
 }
 
 .about-right-title {
