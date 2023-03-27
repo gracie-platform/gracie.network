@@ -104,7 +104,7 @@
 }
 
 .about-values-content p {
-  font-size: 30px;
+  font-size: 24px;
 }
 
 .about-values .core-values,
@@ -151,7 +151,7 @@
 }
 
 .vision-right p {
-  font-size: 30px;
+  font-size: 24px;
   line-height: 35px;
 }
 
@@ -183,8 +183,8 @@
 
 .mission-details p {
   text-align: center;
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 30px;
 }
 
 @media only screen and (max-width: 800px) {
