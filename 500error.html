@@ -12,25 +12,79 @@
   <link rel="icon" type="image/png" href="./img/icons/favicon.ico" />
   <title>Gracie</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      max-width: 100vw;
+      max-height: 100vh;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .error-img {
+      height: 50vh;
+    }
+
+
+
+    footer {
+      width: 100%;
+      padding: 20px 0;
+      background-color: #eee;
+      padding: 10px;
+      width: 100vw;
+      height: 400px;
+    }
+  </style>
 </head>
 
 <body>
-  <main>
-    <section id="error" class="h-screen justify-center items-center">
-      <div class="error-img-container">
-        <img src="./img/error.png" alt="">
+  <div class="outer-container flex-col">
+    <section class="flex-col items-center justify-center">
+      <div class="error-img-container flex justify-center">
+        <img src="./img/error.png" alt="" class="error-img">
       </div>
       <div class="error-img-container">
         <div class="token-card card flex-column">
-            <h3 class="token-card-heading">Sorry, something went wrong.</h3>
-            <p> In the mean time you can: <br>
-                <i>Go back and try again. </i> <br>
-                <i>If the issue persists, try again later.</i> <br>
-            </p>
+          <h3 class="token-card-heading">Sorry, something went wrong.</h3>
+          <p> In the mean time you can: <br>
+            <i>Go back and try again. </i> <br>
+            <i>If the issue persists, try again later.</i> <br>
+          </p>
+        </div>
+    </section>
+
+
+
+    <footer class="w-screen">
+      <div class="container flex-col justify-center" style="padding: 0;">
+        <div class="footer-links w-full flex justify-between" style="border-top: none; padding: 0 0 5px;">
+          <div>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-logo flex">
+          <a href="index.html">
+            <img src="./img/gracie-black-02.svg" style="height: 40px;" alt="logo">
+          </a>
+        </div>
+        <div class="w-full footer-copyright">
+          <p class="center">Copyright &copy; <span id="copyright-year"></span> Gracie | All rights reserved</p>
         </div>
       </div>
-    </section>
-  </main>
+    </footer>
+  </div>
+  <script>
+    document.getElementById('copyright-year').innerHTML = (new Date).getFullYear();
+  </script>
 </body>
 
 </html>

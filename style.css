@@ -48,16 +48,29 @@ h2,
 h3,
 h4,
 h5,
-h6
-{
+h6 {
   font-family: 'Magical_Night', 'Open Sans', sans-serif;
 }
 
-h1 {font-size: 60px;}
-h2 {font-size: 40px;}
-h3 {font-size: 22px;}
-h4 {font-size: 30px;}
-h5 {font-size: 20px;}
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 30px;
+}
+
+h5 {
+  font-size: 20px;
+}
 
 .container {
   max-width: 1300px;
@@ -242,7 +255,8 @@ img {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
 .responsive-iframe {
@@ -350,8 +364,6 @@ main>.team-popup-container{
 /*========================== ERROR =========================== */
 .error-img-container {
   max-width: 500px;
-  padding: 20px 20px;
-  margin: 20px 20px;
 }
 
 #error {
@@ -624,7 +636,7 @@ main>.team-popup-container{
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: left;
+  align-items: center;
   padding: 50px 0;
 }
 
@@ -711,6 +723,7 @@ main>.team-popup-container{
 .popup-head {
   text-transform: uppercase
 }
+
 .team-popup-container {
   position: fixed;
   top: 50%;
@@ -853,7 +866,7 @@ ul li a:hover {
 }
 
 .footer-links {
-  padding: 20px 10px ;
+  padding: 20px 10px;
   /* padding-top: 50px; */
   /* padding-bottom: 20px; */
   border-top: 1px solid #aaa;
@@ -952,11 +965,25 @@ ul li a:hover {
     max-width: calc(100vw - 5px);
   } */
 
-  h1 {font-size: 30px;}
-  h2 {font-size: 27px;}
-  h3 {font-size: 22px;}
-  h4 {font-size: 20px;}
-  h5 {font-size: 18px;}
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 27px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
 
   .menuBtn-outer {
     right: 5px;
@@ -966,17 +993,14 @@ ul li a:hover {
     grid-template-columns: 1fr;
   }
 
-  .left { 
+  .left {
     align-self: self-end;
   }
 
-  .right { 
+  .right {
     align-self: self-start;
   }
 
-  .section-title {
-    /*font-size: 24px;*/
-  }
   .section-subtitle {
     margin-top: 2px;
     font-size: 18px;
@@ -988,11 +1012,19 @@ ul li a:hover {
     padding-right: 10px;
   }
 
-  .token-card-first { margin-left: 0px;}
-  .token-card-last { margin-right: 0px;}
+  .token-card-first {
+    margin-left: 0px;
+  }
+
+  .token-card-last {
+    margin-right: 0px;
+  }
 
   .token-card-1-details .small {
-    font-size: 14px};
+    font-size: 14px
+  }
+
+  ;
 
   .footer-logo {
     padding: 20px 0;
@@ -1018,7 +1050,7 @@ ul li a:hover {
   }
 
   .footer-links {
-    padding: -20px -10px ;
+    padding: -20px -10px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
   }
