@@ -296,6 +296,19 @@ img {
   left: 1px;
 }
 
+.close-icon{
+  margin:0 auto;
+  width: 35px;
+  height: 35px;
+}
+.close-menu-btn{
+  font-size: 20px;
+  height: 52px;
+}
+.close-menu-btn:hover{
+  box-shadow: none;
+}
+
 
 main {
   height: 100vh;
@@ -304,9 +317,33 @@ main {
 }
 
 main>section,
+main>div,
 main>footer {
-  height: 100vh;
+  min-height: 100vh;
+  
+}
+main>section.index-section,
+main>div.index-section,
+main>footer.index-section{
   scroll-snap-align: start;
+}
+main>div.team-header{
+  min-height: auto;
+  height: 300px;
+}
+main>div#team-container{
+  scroll-snap-align: unset;
+}
+.about-hero,.about-services,.about-values,.about-vision,.about-mission{
+  min-height: auto;
+  
+}
+.about-services,.about-values,.about-vision,.about-mission{
+  padding: 10px;
+}
+
+main>.team-popup-container{
+  min-height: auto;
 }
 
 
@@ -393,7 +430,9 @@ main>footer {
 }
 
 .page-title {
-  margin: 20px 0;
+  font-family: 'Magical_Night', 'Open Sans', sans-serif;
+  font-size: 30px;
+  margin: 30px 0;
 }
 
 .section-subtitle {
@@ -581,7 +620,7 @@ main>footer {
 
 /* ========================== TEAM =========================== */
 .team {
-  /* min-height: 80vh; */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -600,11 +639,12 @@ main>footer {
 }
 
 .section-title {
+  font-size: 30px;
   margin-bottom: 10px;
 }
 
 .team-card-container {
-  width: 80%;
+  width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   /* justify-content: center; */
@@ -862,14 +902,16 @@ ul li a:hover {
     max-width: calc(100vw - 10px);
   } */
 
-  .team-header {
+  main>div.team-header {
     height: 200px;
+    padding: 10px 5px;
     display: flex;
   }
-
   .team-card-container {
+    width: 100%;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    padding: 10px;
   }
 
   .about-container,
