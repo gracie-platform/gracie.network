@@ -1,7 +1,5 @@
 /* ========================== ABOUT =========================== */
 
-
-
 .about-header {
   height: 300px;
   width: 100%;
@@ -22,29 +20,30 @@
 
 .about-hero-container {
   display: grid;
+  font-size: 24px;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 25px 0px;
 }
 
-.about-hero-container .about-right {
-}
+.about-hero-container .about-right {}
 
 .hero-right-title {
   font-size: 40px;
   line-height: 50px;
 }
 
-.about-hero-container .about-left {
-}
+.about-hero-container .about-left {}
 
 .about-right-title {
   font-size: 40px;
   line-height: 60px;
 }
-.about-header-icon{
+
+.about-header-icon {
   display: none;
 }
+
 /* ========================== ABOUT SERVICES =========================== */
 .about-services {
   display: flex;
@@ -71,11 +70,13 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background-color: var(--primary-grey);
+  padding: 1rem 1rem;
 }
 
 
 .service-heading {
-  font-size: 35px;
+  font-size: 36px;
 }
 
 .about-service-card p {
@@ -93,13 +94,13 @@
 
 .values-header-container {
   display: flex;
-  justify-content: right;
+  justify-content: center;
 }
 
 .about-values-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 10px;
 }
 
 .about-values-content p {
@@ -109,8 +110,8 @@
 .about-values .core-values,
 .about-mission .core-mission {
   height: 100%;
-  background-image: url('img/about/web-square4-transparent.png');
-  background-size: cover;
+  /* background-image: url('img/about/web-square2.png');
+  background-size: cover; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,8 +119,7 @@
 
 .about-values .core-values h1 {
   text-align: right;
-  font-size: 60px;
-  line-height: 70px;
+  font-size: 50px;
 }
 
 /* ========================== ABOUT VISION =========================== */
@@ -129,19 +129,23 @@
   flex-direction: column;
 }
 
-.vision-cotent {
+.about-vision-header {
+  display: flex;
+  justify-content: center;
+}
+
+.vision-content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .vision-left h1 {
-  font-size: 60px;
-  line-height: 70px;
+  font-size: 50px;
 }
 
 .vision-right {
-  grid-column: span 2;
   display: flex;
   align-items: center;
 }
@@ -168,7 +172,7 @@
 
 .core-mission {
   height: auto;
-  max-width: 500px;
+  max-width: 100%;
 }
 
 .core-mission-title {
@@ -183,63 +187,77 @@
   line-height: 40px;
 }
 
-
-
 @media only screen and (max-width: 800px) {
   .about-header {
     height: 200px;
     padding: 10px 5px;
     background-image: url(img/mobile/about-header-blank-200-mobile.png);
   }
-  .about-section-header-wrapper{
+
+  .about-section-header-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
   }
-  .about-section-header{
+
+  .about-section-header {
     cursor: pointer;
   }
-  .about-header-icon{
+
+  .about-header-icon {
     display: block;
   }
-  .rotate-about-header-icon{
+
+  .rotate-about-header-icon {
     transform: rotate(45deg);
     transition: transform .5s ease;
   }
-  .about-header-icon img{
+
+  .about-header-icon img {
     width: 30px;
     height: 30px;
   }
-  .about-services-card-container,.about-values-content,.vision-cotent,.mission-content{
+
+  .about-services-card-container,
+  .about-values-content,
+  .vision-content,
+  .mission-content {
     max-height: 0;
     overflow: hidden;
   }
-  .expanded-services{
-    max-height: 445px;
+
+  .expanded-services {
+    max-height: 100%;
     transition: max-height .5s ease;
   }
-  .expanded-values{
-    max-height: 338px;
+
+  .expanded-values {
+    max-height: 100%;
     transition: max-height .5s ease;
   }
-  .expanded-vision{
-    max-height: 170px;
+
+  .expanded-vision {
+    max-height: 100%;
     transition: max-height .5s ease;
   }
+
   .about-mission {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 20px;
   }
-  .expanded-mission{
-    max-height:260px;
+
+  .expanded-mission {
+    max-height: 100%;
     transition: max-height .5s ease;
   }
-  .values-header-container{
+
+  .values-header-container {
     /*justify-content: left;*/
   }
+
   .about-hero-container {
     grid-template-columns: 1fr;
     padding: 10px;
@@ -273,11 +291,13 @@
   .vision-left h1 {
     font-size: 30px;
     line-height: 35px;
+    text-align: center;
   }
 
   .vision-right p {
     font-size: 24px;
     line-height: 30px;
+    text-align: center;
   }
 
   section.about-values {
@@ -288,6 +308,7 @@
   .about-values-content {
     grid-template-columns: 1fr;
     gap: 30px;
+    text-align: center;
   }
 
   .about-values-content p {
@@ -309,14 +330,14 @@
     height: auto;
   }
 
-  .vision-cotent {
+  .vision-content {
     grid-template-columns: 1fr;
   }
 
   .core-values,
   .core-mission-title {
-    font-size: 40px;
-    line-height: 50px;
+    font-size: 30px;
+    line-height: 30px;
   }
 }
 
@@ -338,11 +359,11 @@
 
   .about-values-content {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 10px;
   }
 
   .about-values .core-values h1 {
-    font-size: 60px;
+    font-size: 30px;
     text-align: center;
   }
 
@@ -351,7 +372,7 @@
     height: auto;
   }
 
-  .vision-cotent {
+  .vision-content {
     grid-template-columns: 1fr;
   }
 

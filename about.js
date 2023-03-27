@@ -1,6 +1,6 @@
 const servicesContainer = document.querySelector(".about-services-card-container");
 const valuesContainer = document.querySelector(".about-values-content");
-const visionContainer = document.querySelector(".vision-cotent");
+const visionContainer = document.querySelector(".vision-content");
 const missionContainer = document.querySelector(".mission-content");
 
 const servicesHeader = document.querySelector(".about-service-header");
