@@ -240,7 +240,7 @@ img {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.btn {
+/* .btn {
   padding: .75rem 2rem;
   text-align: center;
   border: 2px solid #000;
@@ -249,7 +249,7 @@ img {
   font-weight: 600;
   cursor: pointer;
   color: var(--dark-bg);
-}
+} */
 
 .container-video {
   position: relative;
@@ -275,6 +275,7 @@ img {
   left: 0;
   transition: all 0.15s linear 0s;
   font-family: 'Magical_Night', 'Open Sans', sans-serif;
+  font-size: 18px;
   display: inline-block;
   cursor: pointer;
   border: none;
@@ -978,6 +979,10 @@ ul li a:hover {
 
   .newsletter .newsletter-inner {
     justify-content: center;
+  }
+
+  .section-title {
+    font-size: 30px;
   }
 }
 
