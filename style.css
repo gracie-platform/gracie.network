@@ -378,7 +378,7 @@ main>.team-popup-container{
 
 /*========================== HERO =========================== */
 #hero {
-  background: url('./img/background.png');
+  background: url(/img/background.png);
   background-size: cover;
   background-attachment: fixed;
 }
