@@ -3,7 +3,7 @@
 .about-header {
   height: 300px;
   width: 100%;
-  background-image: url(img/about/about-header-blank.png);
+  background-image: url(img/about/header.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -43,6 +43,21 @@
 .about-header-icon {
   display: none;
 }
+
+.about-values .core-values,
+.about-mission .core-mission {
+  height: 100%;
+  /* background-image: url('img/about/web-square2.png');
+  background-size: cover; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* .values-title, .mission-title, .vision-title {
+  font-size: 50px;
+} */
 
 /* ========================== ABOUT SERVICES =========================== */
 .about-services {
@@ -97,29 +112,27 @@
   justify-content: center;
 }
 
-.about-values-content {
+.values-content {
   display: grid;
+  justify-content: center;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
-
-.about-values-content p {
-  font-size: 24px;
-}
-
-.about-values .core-values,
-.about-mission .core-mission {
-  height: 100%;
-  /* background-image: url('img/about/web-square2.png');
-  background-size: cover; */
+.values-image {
   display: flex;
   justify-content: center;
-  align-items: center;
+  max-height: 400px;
+}
+.values-text {
+  text-align: left;
+}
+.values-title {
+  text-align: left;
 }
 
-.about-values .core-values h1 {
-  text-align: right;
-  font-size: 50px;
+.values-body {
+  font-size: 24px;
+  line-height: 35px;
 }
 
 /* ========================== ABOUT VISION =========================== */
@@ -141,16 +154,19 @@
   gap: 10px;
 }
 
-.vision-left h1 {
-  font-size: 50px;
-}
-
-.vision-right {
+.vision-image {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  max-height: 400px;
+}
+.vision-text {
+  text-align: right;
+}
+.vision-title {
+  text-align: right;
 }
 
-.vision-right p {
+.vision-body {
   font-size: 24px;
   line-height: 35px;
 }
@@ -164,34 +180,38 @@
 }
 
 .mission-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.core-mission {
   height: auto;
   max-width: 100%;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  gap: 20px;
+}
+.mission-image {
+  display: flex;
+  justify-content: center;
+  max-height: 400px;
+
+}
+.mission-text {
+  text-align: center;
+}
+.mission-title {
+  text-align: center;
 }
 
-.core-mission-title {
-  text-align: center;
-  font-size: 50px;
-}
-
-
-.mission-details p {
-  text-align: center;
+.mission-body {
   font-size: 24px;
-  line-height: 30px;
+  line-height: 35px;
+  text-align: center;
+
 }
 
 @media only screen and (max-width: 800px) {
   .about-header {
     height: 200px;
     padding: 10px 5px;
-    background-image: url(img/mobile/about-header-blank-200-mobile.png);
+    background-image: url(img/about/header-mobile.png);
   }
 
   .about-section-header-wrapper {
@@ -220,7 +240,7 @@
   }
 
   .about-services-card-container,
-  .about-values-content,
+  .values-content,
   .vision-content,
   .mission-content {
     max-height: 0;
@@ -313,6 +333,7 @@
 
   .about-values-content p {
     font-size: 24px;
+    text-align: center;
   }
 
   .about-values .core-values h1 {
@@ -323,7 +344,7 @@
   .mission-details p {
     font-size: 24px;
     line-height: 30px;
-  }
+    }
 
 
   section.about-vision {
@@ -332,6 +353,26 @@
 
   .vision-content {
     grid-template-columns: 1fr;
+  }
+
+  .vision-title {
+    text-align: center;
+  }
+
+  .vision-text { 
+    text-align: center;
+  }
+
+  .values-content {
+    grid-template-columns: 1fr;
+  }
+
+  .values-title {
+    text-align: center;
+  }
+
+  .values-text { 
+    text-align: center;
   }
 
   .core-values,

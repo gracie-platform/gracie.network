@@ -53,7 +53,7 @@ h6 {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 50px;
 }
 
 h2 {
@@ -640,9 +640,25 @@ main>.team-popup-container{
   padding: 50px 0;
 }
 
+
+
+.about-header {
+  height: 300px;
+  width: 100%;
+  background-image: url(img/team/header.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
 .team-header {
   height: 110px;
   display: flex;
+}
+
+.team-header div {
+  width: 100%;
 }
 
 .team-header h1 {
@@ -651,7 +667,7 @@ main>.team-popup-container{
 }
 
 .section-title {
-  font-size: 30px;
+  font-size: 40px;
   margin-bottom: 10px;
 }
 
@@ -942,6 +958,12 @@ ul li a:hover {
 
   .token-card-last {
     margin-top: 0rem;
+  }
+
+  .team-header {
+    height: 200px;
+    padding: 10px 5px;
+    background-image: url(img/team/header-mobile.png);
   }
 
   .newsletter {
