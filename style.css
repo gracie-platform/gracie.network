@@ -240,7 +240,7 @@ img {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* .btn {
+.btn {
   padding: .75rem 2rem;
   text-align: center;
   border: 2px solid #000;
@@ -249,7 +249,7 @@ img {
   font-weight: 600;
   cursor: pointer;
   color: var(--dark-bg);
-} */
+}
 
 .container-video {
   position: relative;
@@ -931,6 +931,12 @@ ul li a:hover {
   /* .menu-outer-blur {
     max-width: calc(100vw - 10px);
   } */
+
+  #hero {
+    background: url(/img/background-mobile.png);
+    background-size: cover;
+    background-attachment: fixed;
+  }
 
   main>div.team-header {
     height: 200px;

@@ -21,8 +21,8 @@ teamMembers.forEach(member => {
   teamCard.classList.add("team-card");
   // teamCard.id = "team-card"
 
-  const cardHoverBreif = document.createElement("div");
-  cardHoverBreif.classList.add("card-hover-brief");
+  const cardHoverBrief = document.createElement("div");
+  cardHoverBrief.classList.add("card-hover-brief");
 
   const image = document.createElement("img");
   image.src = member.imageSrc;
@@ -31,13 +31,13 @@ teamMembers.forEach(member => {
   const name = document.createElement("p");
   name.classList.add('member-name');
   name.innerText = member.name;
-  cardHoverBreif.appendChild(name);
+  cardHoverBrief.appendChild(name);
 
   const designation = document.createElement("p");
   designation.innerText = member.designation;
-  cardHoverBreif.appendChild(designation);
+  cardHoverBrief.appendChild(designation);
 
-  teamCard.appendChild(cardHoverBreif)
+  teamCard.appendChild(cardHoverBrief)
   teamCard.appendChild(image)
 
   teamCardContainer.appendChild(teamCard);
@@ -62,12 +62,11 @@ teamMembers.forEach(member => {
         <p>${member.details}</p>
       </div>
       <div class="popup-icons">
-      ${member.twitter ? `
+        ${member.twitter ? `
         <div>
           <a href=${member.twitter} target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
         ` : ''}
-        
         ${member.linkedin ? `
         <div>
           <a href=${member.linkedin} target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
