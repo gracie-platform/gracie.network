@@ -384,7 +384,7 @@ main>.team-popup-container{
 }
 
 .hero-front-img-container {
-  max-width: 500px;
+  max-width: 800px;
 }
 
 /* ========================== MENU CONTENT =========================== */
@@ -420,9 +420,9 @@ main>.team-popup-container{
 
 #menuContent-outer {
   position: absolute;
-  height: 00px;
+  height: 500px;
   width: 300px;
-  top: 55px;
+  top: 61px;
   right: 0px;
   z-index: 2;
   overflow-y: hidden;
