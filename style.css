@@ -410,6 +410,7 @@ main>.team-popup-container{
 
 .menuBtn-container {
   position: absolute;
+  height: 500px;
   right: 0;
 }
 
