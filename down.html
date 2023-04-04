@@ -40,10 +40,9 @@
 
     .bottom-container {
       height: calc(50vh - 12px);
-      max-width: 500px;
       background-color: #eee;
       position: relative;
-      top: 0;
+      top: 10vh;
       left: 0;
       z-index: 100;
     }
@@ -51,8 +50,9 @@
     .retry-container {
       margin: auto;
       position: absolute;
-      top: -80px;
+      top: -180px;
       left: 10px;
+      padding-left: 10px;
     }
 
     .error-img-container {
@@ -105,6 +105,19 @@
       .bottom-container {
         height: calc(60vh - 12px);
       }
+
+      .retry-container {
+        max-width: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .error-img-container {
+        transform: translateY(-100px);
+        z-index: 10;
+      }
     }
   </style>
 </head>
@@ -129,9 +142,9 @@
 
     <div class="inner-container w-screen bottom-container flex-col gap-3" style="background-color: #eee;">
 
-      <div class="retry-container">
+      <div class="retry-container w-full">
         <a href="./index.html" class="button-10">
-          Go Home
+          Retry
         </a>
       </div>
       <section class="flex-col items-center justify-center">
