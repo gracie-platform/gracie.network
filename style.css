@@ -346,6 +346,7 @@ main>section.index-section,
 main>div.index-section,
 main>footer.index-section {
   scroll-snap-align: start;
+  overscroll-behavior-y: none;
 }
 
 main>div.team-header {
@@ -955,7 +956,6 @@ ul li a:hover {
     background: url(/img/background-mobile.png);
     background-size: cover;
     background-attachment: fixed;
-    overscroll-behavior-y: none;
   }
 
   main>div.team-header {
