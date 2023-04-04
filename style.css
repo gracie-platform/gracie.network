@@ -24,7 +24,8 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   scroll-behavior: auto;
-  transition: all .3s;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
 }
 
 @font-face {
@@ -273,7 +274,9 @@ img {
 .button-10 {
   top: 0;
   left: 0;
-  transition: all 0.15s linear 0s;
+  /* transition: all 0.15s linear 0s; */
+  /* -webkit-transition: all 200ms ease;
+  transition: all 200ms ease; */
   font-family: 'Magical_Night', 'Open Sans', sans-serif;
   font-size: 18px;
   display: inline-block;
@@ -311,11 +314,20 @@ img {
   left: 1px;
 }
 
-.close-menu-btn{
+.close-menu-btn {
   height: 51px;
   width: 102px;
 }
 
+/* .close-icon{
+  margin:0 auto;
+  width: 35px;
+  height: 35px;
+}
+
+.close-menu-btn:hover{
+  box-shadow: none;
+} */
 
 main {
   height: 100vh;
@@ -327,25 +339,37 @@ main>section,
 main>div,
 main>footer {
   min-height: 100vh;
-  
+
 }
+
 main>section.index-section,
 main>div.index-section,
-main>footer.index-section{
+main>footer.index-section {
   scroll-snap-align: start;
 }
-main>div.team-header{
+
+main>div.team-header {
   min-height: auto;
   height: 300px;
 }
-main>div#team-container{
+
+main>div#team-container {
   scroll-snap-align: unset;
 }
-.about-hero,.about-services,.about-values,.about-vision,.about-mission{
+
+.about-hero,
+.about-services,
+.about-values,
+.about-vision,
+.about-mission {
   min-height: auto;
-  
+
 }
-.about-services,.about-values,.about-vision,.about-mission{
+
+.about-services,
+.about-values,
+.about-vision,
+.about-mission {
   padding: 10px;
 }
 
@@ -389,6 +413,7 @@ main>.team-popup-container{
   left: 0;
   z-index: 1;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   opacity: 0;
   display: none;
 }
@@ -402,7 +427,7 @@ main>.team-popup-container{
 
 .menuBtn-container {
   position: absolute;
-  height: 500px;
+  /* height: 500px; */
   right: 0;
 }
 
@@ -517,7 +542,7 @@ main>.team-popup-container{
 
 .token-card:hover {
   background-color: var(--primary-grey);
-  transition: var(--main-transition)
+  /* transition: var(--main-transition) */
 }
 
 
@@ -712,7 +737,8 @@ main>.team-popup-container{
 
 .team-card:hover .card-hover-brief {
   display: flex;
-  transition: 1s;
+  -webkit-transition: 100ms ease;
+  transition:  1000ms ease;
 }
 
 
@@ -872,7 +898,7 @@ ul li a {
 ul li a:hover {
   text-decoration: underline;
   color: #000;
-  transition: var(--main-transition);
+  /* transition: var(--main-transition); */
 }
 
 .footer-links {
@@ -936,6 +962,7 @@ ul li a:hover {
     padding: 10px 5px;
     display: flex;
   }
+
   .team-card-container {
     width: 100%;
     grid-template-columns: 1fr 1fr;
@@ -1049,8 +1076,6 @@ ul li a:hover {
   .token-card-1-details .small {
     font-size: 14px
   }
-
-  ;
 
   .footer-logo {
     padding: 20px 0;
