@@ -955,6 +955,7 @@ ul li a:hover {
     background: url(/img/background-mobile.png);
     background-size: cover;
     background-attachment: fixed;
+    overscroll-behavior-y: none;
   }
 
   main>div.team-header {
