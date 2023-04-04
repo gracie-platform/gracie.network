@@ -311,17 +311,9 @@ img {
   left: 1px;
 }
 
-.close-icon{
-  margin:0 auto;
-  width: 35px;
-  height: 35px;
-}
 .close-menu-btn{
-  font-size: 20px;
-  height: 52px;
-}
-.close-menu-btn:hover{
-  box-shadow: none;
+  height: 51px;
+  width: 102px;
 }
 
 
