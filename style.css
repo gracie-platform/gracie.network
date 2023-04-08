@@ -361,7 +361,7 @@ main>div#team-container {
   padding: 10px;
 }
 
-main>.team-popup-container{
+main>.team-popup-container {
   min-height: auto;
 }
 
@@ -382,10 +382,10 @@ main>.team-popup-container{
 
 /*========================== HERO =========================== */
 #hero {
-  /* background: url(/img/background.png);
-  background-size: cover; */
+  background: url(/img/background.png);
+  background-size: cover;
   background-attachment: fixed;
-  background: url(/img/background-tile.png);
+  /* background: url(/img/background-tile.png); */
   background-size: auto;
   background-repeat: repeat-x repeat-y;
 }
@@ -729,7 +729,7 @@ main>.team-popup-container{
 .team-card:hover .card-hover-brief {
   display: flex;
   -webkit-transition: 100ms ease;
-  transition:  1000ms ease;
+  transition: 1000ms ease;
 }
 
 
