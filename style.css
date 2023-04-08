@@ -382,9 +382,12 @@ main>.team-popup-container{
 
 /*========================== HERO =========================== */
 #hero {
-  background: url(/img/background.png);
-  background-size: cover;
+  /* background: url(/img/background.png);
+  background-size: cover; */
   background-attachment: fixed;
+  background: url(/img/background-tile.png);
+  background-size: auto;
+  background-repeat: repeat-x repeat-y;
 }
 
 .hero-front-img-container {
