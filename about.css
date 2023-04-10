@@ -213,7 +213,7 @@
 @media only screen and (max-width: 800px) {
   .about-header {
     height: 200px;
-    padding: 10px 5px;
+    padding: 80px 5px;
     background-image: url(img/header-mobile.png);
   }
 
@@ -389,7 +389,7 @@
 
 @media only screen and (max-width: 480px) {
   .about-header {
-    padding: 10px 5px;
+    padding: 80px 5px;
   }
 
   .about-hero-container {

@@ -668,7 +668,6 @@ main>.team-popup-container {
 .team-header h1 {
   font-size: 100px;
   text-align: left;
-  padding: 100px 5px;
 }
 
 .section-title {
@@ -934,7 +933,7 @@ ul li a:hover {
 
   main>div.team-header {
     height: 200px;
-    padding: 100px 5px;
+    padding: 10px 5px;
     display: flex;
     background-image: url(img/header-mobile.png);
   }
