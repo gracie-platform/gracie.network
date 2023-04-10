@@ -388,9 +388,9 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .about-header {
+  /* .about-header {
     padding: 80px 5px;
-  }
+  } */
 
   .about-hero-container {
     grid-template-columns: 1fr;
