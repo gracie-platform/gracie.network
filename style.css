@@ -928,8 +928,9 @@ ul li a:hover {
 
   main>div.team-header {
     height: 200px;
-    padding: 10px 5px;
+    padding: 100px 5px;
     display: flex;
+    background-image: url(img/header-mobile.png);
   }
 
   .team-card-container {
@@ -956,11 +957,11 @@ ul li a:hover {
     margin-top: 0rem;
   }
 
-  .team-header {
+  /* .team-header {
     height: 200px;
     padding: 10px 5px;
     background-image: url(img/header-mobile.png);
-  }
+  } */
 
   .newsletter {
     grid-template-columns: 1fr;
