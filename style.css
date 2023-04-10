@@ -387,7 +387,7 @@ main>.team-popup-container {
   background-attachment: fixed;
   /* background: url(/img/background-tile.png); */
   background-size: auto;
-  background-repeat: repeat-x repeat-y;
+  /* background-repeat: repeat-x repeat-y; */
 }
 
 .hero-front-img-container {
