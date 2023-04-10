@@ -650,18 +650,6 @@ main>.team-popup-container {
   padding: 50px 0;
 }
 
-
-
-.about-header {
-  height: 300px;
-  width: 100%;
-  background-image: url(img/header.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-}
-
 .team-header {
   height: 110px;
   display: flex;
@@ -674,6 +662,7 @@ main>.team-popup-container {
 .team-header h1 {
   font-size: 100px;
   text-align: left;
+  padding: 100px 5px;
 }
 
 .section-title {
