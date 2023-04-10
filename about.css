@@ -3,7 +3,7 @@
 .about-header {
   height: 300px;
   width: 100%;
-  background-image: url(img/about/header.png);
+  background-image: url(img/header.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -212,7 +212,7 @@
   .about-header {
     height: 200px;
     padding: 10px 5px;
-    background-image: url(img/about/header-mobile.png);
+    background-image: url(img/header-mobile.png);
   }
 
   .about-section-header-wrapper {

@@ -655,7 +655,7 @@ main>.team-popup-container {
 .about-header {
   height: 300px;
   width: 100%;
-  background-image: url(img/team/header.png);
+  background-image: url(img/header.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -970,7 +970,7 @@ ul li a:hover {
   .team-header {
     height: 200px;
     padding: 10px 5px;
-    background-image: url(img/team/header-mobile.png);
+    background-image: url(img/header-mobile.png);
   }
 
   .newsletter {
