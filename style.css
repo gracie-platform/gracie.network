@@ -339,6 +339,12 @@ main>footer.index-section {
 main>div.team-header {
   min-height: auto;
   height: 300px;
+  width: 100%;
+  background-image: url(img/header.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
 }
 
 main>div#team-container {
