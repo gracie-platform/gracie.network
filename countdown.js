@@ -18,6 +18,5 @@ var countDownDate = new Date("May 18, 2024 21:00:00").getTime();
 
   // If the count down is finished, write some text
   if (distance < 0) {
-    clearInterval(x);
     document.getElementById("countdown").innerText = "The Sale is Over!";
   }
