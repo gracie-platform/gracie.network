@@ -1066,7 +1066,10 @@ ul li a:hover {
     min-height: auto;
     padding: 20px 0;
   }
-
+  .team-popup-container {
+    top: 55%;
+    height: 82vh;
+  }
   .team-card-container {
     gap: 15px;
   }
