@@ -1061,7 +1061,9 @@ ul li a:hover {
     flex-direction: column;
     justify-content: center;
   }
-
+  .member-name {
+    font-size: 36px;
+  }
   .team-container {
     min-height: auto;
     padding: 20px 0;
