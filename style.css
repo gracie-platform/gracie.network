@@ -596,7 +596,8 @@ main>.team-popup-container {
   background-color: var(--primary-white);
   background: repeating-conic-gradient(from 0deg,
       var(--primary-pink) 0deg 150deg,
-      var(--primary-blue) 150deg 300deg,
+      var(--secondary-pink) 150deg 167deg,     
+      var(--primary-blue) 167deg 300deg,
       var(--secondary-blue) 300deg 360deg);
   position: relative;
   z-index: 0;
@@ -639,10 +640,14 @@ main>.team-popup-container {
 }
 
 .pie-details .slice2 {
-  background-color: var(--primary-blue);
+  background-color: var(--secondary-pink);
 }
 
 .pie-details .slice3 {
+  background-color: var(--primary-blue);
+}
+
+.pie-details .slice4 {
   background-color: var(--secondary-blue);
 }
 
