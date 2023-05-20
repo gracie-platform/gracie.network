@@ -487,6 +487,26 @@ main>.team-popup-container {
   margin-bottom: 0;
 }
 
+.token-header {
+  height: 300px;
+  width: 100%;
+  background-image: url(img/header.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.token-header div {
+  width: 100%;
+}
+
+.token-header h1 {
+  font-size: 100px;
+  text-align: left;
+  padding: 10px 5px;
+}
+
 .token {
   min-height: 100vh;
   border-bottom: none !important;
@@ -943,6 +963,13 @@ ul li a:hover {
     background-image: url(img/header-mobile.png);
   }
 
+  main>div.token-header {
+    height: 200px;
+    /* padding: 10px 5px; */
+    display: flex;
+    background-image: url(img/header-mobile.png);
+  }
+
   .team-card-container {
     width: 100%;
     grid-template-columns: 1fr 1fr;
@@ -965,6 +992,12 @@ ul li a:hover {
 
   .token-card-last {
     margin-top: 0rem;
+  }
+
+  .token-header {
+    height: 200px;
+    padding: 90px 5px;
+    background-image: url(img/header-mobile.png);
   }
 
   .team-header {
