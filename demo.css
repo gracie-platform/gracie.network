@@ -17,9 +17,9 @@ canvas {
     top: 0;
     left: 0;
     width: 100vw;
-    /* height: 100vh; */
+    height: 100vh;
     color: #fff;
-    background: linear-gradient(12deg, rgb(32, 156, 255), rgb(103, 223, 227));
+    background: linear-gradient(12deg, rgb(0, 61, 219), rgb(71, 211, 255));
     /* margin-bottom: 400px; */
 }
 
