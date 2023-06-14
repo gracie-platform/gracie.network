@@ -19,10 +19,9 @@ canvas {
     width: 100vw;
     height: 100vh;
     color: #fff;
-    background: linear-gradient(12deg, rgb(0, 61, 219), rgb(71, 211, 255));
+    background: linear-gradient(12deg, rgb(12, 118, 133), rgb(116, 241, 225));
     /* margin-bottom: 400px; */
 }
-
 
 .modal {
     position: fixed;

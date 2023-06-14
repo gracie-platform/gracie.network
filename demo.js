@@ -4,7 +4,6 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-
 // Calculate the center coordinates
 const x = canvas.width / 2;
 const y = canvas.height / 2;
@@ -113,10 +112,9 @@ let intervalComplete = false;
 let startSnapBack = false;
 let textShown = false;
 let setNeutral = false;
-
-let spring = 0.1;
 let distanceFromEdge = x;
 let sheetChanged = null;
+let modalDisplay = false;
 
 // Load sptite sheet with happy emojis
 const happySheet = new Image();
@@ -154,36 +152,37 @@ function drawFrame(index, spriteSheet) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const frameX = emoji[index].x;
     const frameY = emoji[index].y;
-    if (startSnapBack) {        
+    if (startSnapBack) {
+        const spring = 13;
+        const toleranceDistance = 13;        
         const targetX = emojiPositionX; // Start position X
         const targetY = emojiPositionY; // Start position Y
         
         const dx = targetX - selectedFrame.x;
         const dy = targetY - selectedFrame.y;
-        
-        const ax = dx * spring;
-        const ay = dy * spring;
-        
-        selectedFrame.x += ax;
-        selectedFrame.y += ay;
-        let xDifference = Math.abs(selectedFrame.x - emojiPositionX);
-        let yDifference = Math.abs(selectedFrame.y - emojiPositionY);
-        if(xDifference <= 25 && yDifference <= 25){
-            spring = 0.3;
+
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if(distance > toleranceDistance){
+            const vx = (dx / distance) * spring; // Velocity in X direction
+            const vy = (dy / distance) * spring; // Velocity in Y direction
+            selectedFrame.x += vx;
+            selectedFrame.y += vy;
         }
-        if(xDifference <= 0.1 && yDifference <= 0.1){
+        else{
             startSnapBack = false;
+            selectedFrame.x = emojiPositionX;
+            selectedFrame.y = emojiPositionY;
             selectedFrame = null;
-            textShown = false;
             timeInterval = 350;
-            spring = 0.1;
             stopAnimationLoop();
             startAnimationLoop(neutralSheet, 0);
         }
+        
 
     }
     if (!textShown) {
-        showText('SHARE YOUR SATISFACTION', 'With a Swipe');
+        showText('TO INTERACT', 'Swipe or Drag the Emoji');
         ctx.drawImage(shadow, x - 180, emojiPositionY - 300, 355, 600);
     }
     if (index === 0) {
@@ -464,7 +463,8 @@ function handleTouchEnd(event) {
         changingDirection = false;
         startSnapBack = true;
         setNeutral = false;
-        if(modal.style.display === "none"){
+        if(!modalDisplay){
+            timeInterval = 50;
             stopAnimationLoop();
             startAnimationLoop(neutralSheet, 0);
         }
@@ -570,6 +570,7 @@ closeBtn.addEventListener("click", closeButtonClick);
 undoBtn.addEventListener("click", undoButtonClick);
 
 function showModal() {
+    modalDisplay = true;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     stopAnimationLoop();
     modal.style.display = 'flex';
@@ -607,6 +608,7 @@ function undoButtonClick() {
     setNeutral = false;
     timeInterval = 350;
     textShown = false;
+    modalDisplay = false;
     startAnimationLoop(neutralSheet, 0);
     drawFrame(0, recentSelectedSheet);
     modal.style.display = "none";
