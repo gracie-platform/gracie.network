@@ -9,27 +9,86 @@ const x = canvas.width / 2;
 const y = canvas.height / 2;
 const heightThird = canvas.height - (canvas.height / 3.2);
 
+
+
+
 function showText(firstText, secondText) {
     // Set the font properties
-    ctx.font = 'bold 25px  MagicalNight';
+    ctx.font = 'bold 25px MagicalNight';
     ctx.fillStyle = '#fff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-
-
-    // Set the text content
-    const text1 = firstText;
-    const text2 = secondText;
-
+  
     // Draw the text on the canvas
-    ctx.fillText(text1, x, (y + (y / 2)) - 100);
-
+    ctx.fillText(firstText, x, (y + (y / 2)) - 100);
+  
     // Set the font properties
-    ctx.font = '20px MagicalNight';
+    ctx.font = '25px Lexend';
     ctx.fillStyle = 'rgb(235, 232, 232)';
-
-    ctx.fillText(text2, x, (y + (y / 2)) - 70);
+  
+    ctx.fillText(secondText, x, (y + (y / 2)) - 70);
+  
 }
+  
+function fadeAwayText(firstText, secondText) {
+    // Define the fade duration in milliseconds
+    const fadeDuration = 400;
+  
+    // Calculate the opacity change per frame
+    const opacityChange = 1 / (fadeDuration / 16.67); // Assuming 60 FPS (1000ms / 60 = 16.67ms)
+  
+    // Set the initial opacity
+    let opacity = 1;
+  
+    // Create an interval to update the opacity
+    const intervalId = setInterval(() => {
+        // Reduce the opacity by the change amount
+        opacity -= opacityChange;
+
+        // Set the current opacity
+        ctx.globalAlpha = opacity;
+
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.globalAlpha = 1; // Reset the opacity for the emoji
+
+        // Draw the emoji sprite or image here
+        drawFrame(frameIndex, recentSelectedSheet);
+
+        // Draw the text on the canvas with the current opacity
+        ctx.font = 'bold 25px MagicalNight';
+        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(firstText, x, (y + (y / 2)) - 100);
+
+        ctx.font = '20px Lexend';
+        ctx.fillStyle = `rgba(235, 232, 232, ${opacity})`;
+        ctx.fillText(secondText, x, (y + (y / 2)) - 70);
+
+        // Check if the opacity has reached 0 (fully faded away)
+        if (opacity <= 0) {
+            // Stop the interval
+            clearInterval(intervalId);
+        }
+    }, 16.67); // Update every frame (60 FPS)
+}
+  
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+
 
 // Work for sprite sheet start from here
 ////////////////////////////////////////
@@ -110,11 +169,13 @@ let fromRightDiagonal = null;
 let changingDirection = false;
 let intervalComplete = false;
 let startSnapBack = false;
-let textShown = false;
+let textShown = true;
 let setNeutral = false;
 let distanceFromEdge = x;
 let sheetChanged = null;
 let modalDisplay = false;
+
+let backgroundShow = true;
 
 // Load sptite sheet with happy emojis
 const happySheet = new Image();
@@ -144,17 +205,19 @@ neutralSheet.onload = function () {
     canvas.addEventListener('touchstart', handleTouchStart);
     canvas.addEventListener('touchmove', handleTouchMove);
     canvas.addEventListener('touchend', handleTouchEnd);
-};
+    showText('TO INTERACT', 'Swipe or Drag the Emoji');
 
-
+}
 // Function to draw the frames on the canvas
 function drawFrame(index, spriteSheet) {
+    if(!textShown){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
     const frameX = emoji[index].x;
     const frameY = emoji[index].y;
     if (startSnapBack) {
-        const spring = 13;
-        const toleranceDistance = 13;        
+        const spring = 18;
+        const toleranceDistance = 18;
         const targetX = emojiPositionX; // Start position X
         const targetY = emojiPositionY; // Start position Y
         
@@ -173,6 +236,7 @@ function drawFrame(index, spriteSheet) {
             startSnapBack = false;
             selectedFrame.x = emojiPositionX;
             selectedFrame.y = emojiPositionY;
+            backgroundShow = true;
             selectedFrame = null;
             timeInterval = 350;
             stopAnimationLoop();
@@ -181,9 +245,9 @@ function drawFrame(index, spriteSheet) {
         
 
     }
-    if (!textShown) {
-        showText('TO INTERACT', 'Swipe or Drag the Emoji');
-        ctx.drawImage(shadow, x - 180, emojiPositionY - 300, 355, 600);
+
+    if(backgroundShow){
+        ctx.drawImage(shadow, x - 161, emojiPositionY - 195, 320, 450);
     }
     if (index === 0) {
         if (!gameStart) {
@@ -420,7 +484,12 @@ function handleTouchStart(event) {
 function handleTouchMove(event) {
     event.preventDefault(); // Prevent default touchmove behavior
     if (isDragging && selectedFrame) {
-        textShown = true;
+        if(textShown){
+            fadeAwayText('TO INTERACT', 'Swipe or Drag the Emoji');
+        }
+
+        textShown = false;
+        backgroundShow = false;
         const touch = event.touches[0];
         const touchX = touch.clientX - canvas.offsetLeft; // Adjust for canvas position
         const touchY = touch.clientY - canvas.offsetTop; // Adjust for canvas position
@@ -442,32 +511,23 @@ function handleTouchMove(event) {
 
 // Function to handle touchend event
 function handleTouchEnd(event) {
-    if (selectedFrame.y > neutralStatePostions) {// for neutral state
-        recentSelectedSheet = neutralSheet;
-        directionIndex = 0;
-        if (!setNeutral) {
-            frameIndex = 1;
-            setNeutral = true;
-        }
-    }
-    else {
-        frameIndex = 1;
-        prevTouchX = 0;
-        prevTouchY = 0;
-        gameStart = false;
-        recentSelectedSheet = neutralSheet;
-        directionIndex = 0;
-        draggingStart = false;
-        fromLeftDiagonal = null;
-        fromRightDiagonal = null;
-        changingDirection = false;
-        startSnapBack = true;
-        setNeutral = false;
-        if(!modalDisplay){
-            timeInterval = 50;
-            stopAnimationLoop();
-            startAnimationLoop(neutralSheet, 0);
-        }
+
+    frameIndex = 1;
+    prevTouchX = 0;
+    prevTouchY = 0;
+    gameStart = false;
+    recentSelectedSheet = neutralSheet;
+    directionIndex = 0;
+    draggingStart = false;
+    fromLeftDiagonal = null;
+    fromRightDiagonal = null;
+    changingDirection = false;
+    startSnapBack = true;
+    setNeutral = false;
+    if(!modalDisplay){
+        timeInterval = 50;
+        stopAnimationLoop();
+        startAnimationLoop(neutralSheet, 0);
     }
     isDragging = false;
 }
@@ -607,11 +667,13 @@ function undoButtonClick() {
     startSnapBack = false;
     setNeutral = false;
     timeInterval = 350;
-    textShown = false;
+    textShown = true;
     modalDisplay = false;
+    backgroundShow = true;
     startAnimationLoop(neutralSheet, 0);
     drawFrame(0, recentSelectedSheet);
     modal.style.display = "none";
+    showText('TO INTERACT', 'Swipe or Drag the Emoji');
 
 }
 

@@ -5,6 +5,11 @@
     src:url(font/Magical\ Night.woff2) format('woff2');
 }
 
+@font-face {
+    font-family: Lexend;
+    src:url(font/Lexend-VariableFont_wght.ttf) format('truetype');
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -12,15 +17,13 @@ body {
 }
 
 canvas {
-    font-family: MagicalNight;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     color: #fff;
-    background: linear-gradient(12deg, rgb(12, 118, 133), rgb(116, 241, 225));
-    /* margin-bottom: 400px; */
+    background: linear-gradient(12deg, rgb(0, 18, 177), rgb(34, 160, 250));
 }
 
 .modal {
@@ -36,24 +39,24 @@ canvas {
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adjust the box shadow properties as needed */
-  }
+}
   
-  .modal-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.modal-content {
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
   
-  .modal-text {
-    text-align: center;
-    font-family: MagicalNight;
-    color: rgb(65, 63, 63);
-    font-size: 16px;
-    font-size: 16px;
-  }
+.modal-text {
+text-align: center;
+font-family: MagicalNight;
+color: rgb(65, 63, 63);
+font-size: 16px;
+font-size: 16px;
+}
   
 .close,
 .undo img {
@@ -64,8 +67,6 @@ canvas {
     margin: 0;
 }
 
-
-
 .close {
     position: absolute;
     top: 10px;
@@ -74,8 +75,6 @@ canvas {
     width: 19px;
     height: 19px;
 }
-
-
 
 .undo {
     position: absolute;
