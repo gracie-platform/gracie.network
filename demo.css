@@ -23,7 +23,7 @@ canvas {
     width: 100vw;
     height: 100vh;
     color: #fff;
-    background: linear-gradient(12deg, rgb(0, 18, 177), rgb(34, 160, 250));
+    background: linear-gradient(12deg, rgb(12, 118, 133), rgb(116, 241, 225));
 }
 
 .modal {
