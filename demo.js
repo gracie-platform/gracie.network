@@ -695,7 +695,7 @@ function undoButtonClick() {
     timeInterval = 50;
     neutralFrameCounter = 0;
     startAnimationLoop(recentSelectedSheet, directionIndex);
-    showText('TO INTERACT', 'Swipe or Drag the Emoji');
+    showText('', 'How are you feeling?');
     modal.style.display = "none";
 
 }
