@@ -11,14 +11,12 @@ const heightThird = canvas.height - (canvas.height / 3.2);
 
 function showText(firstText, secondText) {
     // Set the font properties
-    ctx.font = 'bold 25px MagicalNight';
+    ctx.font = '25px MagicalNight';
     ctx.fillStyle = '#fff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-  
     // Draw the text on the canvas
     ctx.fillText(firstText, x, (y + (y / 2)) - 100);
-  
     // Set the font properties
     ctx.font = '25px Lexend';
     ctx.fillStyle = 'rgb(235, 232, 232)';
@@ -29,7 +27,7 @@ function showText(firstText, secondText) {
   
 function fadeAwayText(firstText, secondText) {
     // Define the fade duration in milliseconds
-    const fadeDuration = 400;
+    const fadeDuration = 500;
   
     // Calculate the opacity change per frame
     const opacityChange = 1 / (fadeDuration / 16.67); // Assuming 60 FPS (1000ms / 60 = 16.67ms)
@@ -67,6 +65,7 @@ function fadeAwayText(firstText, secondText) {
         // Check if the opacity has reached 0 (fully faded away)
         if (opacity <= 0) {
             // Stop the interval
+            textHide = true;
             clearInterval(intervalId);
         }
     }, 16.67); // Update every frame (60 FPS)
@@ -128,6 +127,7 @@ const emoji = [
     { x: frameWidth * 2, y: frameHeight * 2, index: 12 }, // Frame 13
     { x: frameWidth * 3, y: frameHeight * 2, index: 13 }, // Frame 14
     { x: frameWidth * 4, y: frameHeight * 2, index: 14 }, // Frame 15
+    { x: 0, y: frameHeight * 3, index: 15 }, // Frame 16
 ];
 
 let emojiPositionX = (x) - 45;
@@ -154,8 +154,9 @@ let distanceFromEdge = x;
 let sheetChanged = null;
 let modalDisplay = false;
 let backgroundShow = true;
-let timeInterval = 50;
+let timeInterval = 30;
 let neutralFrameCounter = 0;
+let textHide = false;
 
 // Load sptite sheet with happy emojis
 const happySheet = new Image();
@@ -177,11 +178,8 @@ scaredSheet.src = 'assets/Sprites/Scared.png';
 const screamSheet = new Image();
 screamSheet.src = 'assets/Sprites/Scream.png';
 
-
 const shadow = new Image();
 shadow.src = 'assets/shadow.png';
-
-
 
 neutralSheet.onload = function () {
     canvas.addEventListener('touchstart', handleTouchStart);
@@ -194,42 +192,56 @@ neutralSheet.onload = function () {
 
 }
 // Function to draw the frames on the canvas
+
+function snapBack(){
+    const spring = 18;
+    const toleranceDistance = 18;
+    const targetX = emojiPositionX; // Start position X
+    const targetY = emojiPositionY; // Start position Y
+    
+    const dx = targetX - selectedFrame.x;
+    const dy = targetY - selectedFrame.y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    if(distance > toleranceDistance){
+        const vx = (dx / distance) * spring; // Velocity in X direction
+        const vy = (dy / distance) * spring; // Velocity in Y direction
+        selectedFrame.x += vx;
+        selectedFrame.y += vy;
+    }
+    else{
+        startSnapBack = false;
+        selectedFrame.x = emojiPositionX;
+        selectedFrame.y = emojiPositionY;
+        backgroundShow = true;
+        selectedFrame = null;
+        timeInterval = 30;
+        gameStart = false;
+        stopAnimationLoop();
+        startAnimationLoop(neutralSheet, 0);
+    }
+}
+
 function drawFrame(index, spriteSheet) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if(textHide){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    else{
+        if(recentSelectedSheet === scaredSheet){
+            ctx.clearRect(emoji[0].x-90, emoji[0].y+30, frameWidth, frameHeight);
+        }
+        else{
+            ctx.clearRect(emoji[0].x-90, emoji[0].y-20, frameWidth, frameHeight);
+        }
+    }
+    
     if(textShown){
         showText('TO INTERACT', 'Swipe or Drag the Emoji');
     }
-    const frameX = emoji[index].x;
-    const frameY = emoji[index].y;
+    let frameX = emoji[index].x;
+    let frameY = emoji[index].y;
     if (startSnapBack) {
-        const spring = 18;
-        const toleranceDistance = 18;
-        const targetX = emojiPositionX; // Start position X
-        const targetY = emojiPositionY; // Start position Y
-        
-        const dx = targetX - selectedFrame.x;
-        const dy = targetY - selectedFrame.y;
-
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if(distance > toleranceDistance){
-            const vx = (dx / distance) * spring; // Velocity in X direction
-            const vy = (dy / distance) * spring; // Velocity in Y direction
-            selectedFrame.x += vx;
-            selectedFrame.y += vy;
-        }
-        else{
-            startSnapBack = false;
-            selectedFrame.x = emojiPositionX;
-            selectedFrame.y = emojiPositionY;
-            backgroundShow = true;
-            selectedFrame = null;
-            timeInterval = 50;
-            stopAnimationLoop();
-            startAnimationLoop(neutralSheet, 0);
-        }
-        
-
+        snapBack();
     }
 
     if(backgroundShow){
@@ -240,7 +252,6 @@ function drawFrame(index, spriteSheet) {
         if (!gameStart) {
             emoji[0].x = emojiPositionX;
             emoji[0].y = emojiPositionY;
-            gameStart = true
             if (isDragging) {
                 gameStart = true;
             }
@@ -252,6 +263,10 @@ function drawFrame(index, spriteSheet) {
     }
 
     if(!modalDisplay){
+        if(index === 0){
+            frameX = 0;
+            frameY = 0;
+        }
         ctx.drawImage(spriteSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), emoji[0].x, emoji[0].y, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
     }
 }
@@ -274,7 +289,7 @@ function setFrameIndexForSad(gap) {
     const frameTwelve = distanceFromLeft - (12 * gap);
     const frameThirteen = distanceFromLeft - (13 * gap);
     if (position <= frameZero && position >= frameOne) { // Frame Zero
-        frameIndex = 1;
+        frameIndex = 0;
     }
     else if (position <= frameOne && position >= frameTwo) { // Frame One
         frameIndex = 1;
@@ -340,7 +355,7 @@ function setFrameIndexForHappy(gap) {
     const frameTen = distanceFromRight + (10 * gap);
     const frameEleven = distanceFromRight + (11 * gap);
     if (position >= frameZero && position <= frameOne) { // Frame Zero
-        frameIndex = 1;
+        frameIndex = 0;
     }
     else if (position >= frameOne && position <= frameTwo) { // Frame One
         frameIndex = 1;
@@ -447,7 +462,7 @@ function setFrameStats() {
         }
     }
     if (changingDirection) {
-        frameIndex = 1;
+        frameIndex = 0;
         intervalComplete = false;
     }
     previousFromLeftDigonal = fromLeftDiagonal;
@@ -464,6 +479,9 @@ function handleTouchStart(event) {
         const touchY = touch.clientY - canvas.offsetTop; // Adjust for canvas position
         selectedFrame = findSelectedFrame(touchX, touchY);
         if (selectedFrame && !modalDisplay) {
+            if(textShown){
+                fadeAwayText('TO INTERACT', 'Swipe or Drag the Emoji');
+            }
             isDragging = true;
             prevTouchX = touchX;
             prevTouchY = touchY;
@@ -476,9 +494,7 @@ function handleTouchMove(event) {
 
     event.preventDefault(); // Prevent default touchmove behavior
     if (isDragging && selectedFrame) {
-        if(textShown){
-            fadeAwayText('TO INTERACT', 'Swipe or Drag the Emoji');
-        }
+
 
         textShown = false;
         backgroundShow = false;
@@ -513,17 +529,16 @@ function handleTouchEnd(event) {
             recentSelectedSheet = neutralSheet;
             directionIndex = 0;
         }
-        frameIndex = 1;
+        frameIndex = 0;
         prevTouchX = 0;
         prevTouchY = 0;
-        gameStart = false;
         fromLeftDiagonal = null;
         fromRightDiagonal = null;
         changingDirection = false;
         startSnapBack = true;
         isDragging = false;
         if(!modalDisplay){
-            timeInterval = 50;
+            timeInterval = 30;
             stopAnimationLoop();
             startAnimationLoop(recentSelectedSheet, directionIndex);
         }
@@ -576,12 +591,12 @@ function animateFrame() {
     if (recentSelectedSheet != sheetChanged) {
         if (recentSelectedSheet === neutralSheet && startSnapBack === false) {
             stopAnimationLoop();
-            timeInterval = 50;
+            timeInterval = 30;
             animationInterval = setInterval(animateFrame, timeInterval)
         }
         else {
             stopAnimationLoop();
-            timeInterval = 50;
+            timeInterval = 30;
             animationInterval = setInterval(animateFrame, timeInterval)
         }
     }
@@ -593,30 +608,23 @@ function animateFrame() {
 // Function will update the frame
 function updateFrame() {
     if(recentSelectedSheet != neutralSheet){
-        frameIndex++;
+        neutralFrameCounter++;
+        if(neutralFrameCounter >= 2){
+            neutralFrameCounter = 0;
+            frameIndex++;
+        }
         if (frameIndex >= directionAndIndex[directionIndex].index) {
-            frameIndex = 1;
+            frameIndex = 0;
         }
     }
     else{
-        if(frameIndex === 0 || frameIndex === 3 || frameIndex === 4 || frameIndex === 5){
-            // frameIndex++;
-            neutralFrameCounter++;
-            if(neutralFrameCounter === 3){
-                neutralFrameCounter = 0;
-                frameIndex++;
-            }
-        }
-        else{
-            // frameIndex++;
-            neutralFrameCounter++;
-            if(neutralFrameCounter === 7){
-                neutralFrameCounter = 0;
-                frameIndex++;
-            }
+        neutralFrameCounter++;
+        if(neutralFrameCounter >= 3){
+            neutralFrameCounter = 0;
+            frameIndex++;
         }
         if (frameIndex >= directionAndIndex[directionIndex].index) {
-            frameIndex = 1;
+            frameIndex = 0;
         }
 
     }
@@ -692,10 +700,11 @@ function undoButtonClick() {
     sheetChanged = neutralSheet;
     modalDisplay = false;
     backgroundShow = true;
-    timeInterval = 50;
+    timeInterval = 30;
     neutralFrameCounter = 0;
+    textHide = false;
     startAnimationLoop(recentSelectedSheet, directionIndex);
-    showText('', 'How are you feeling?');
+    showText('TO INTERACT', 'Swipe or Drag the Emoji');
     modal.style.display = "none";
 
 }
