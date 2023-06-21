@@ -27,7 +27,7 @@ function showText(firstText, secondText) {
   
 function fadeAwayText(firstText, secondText) {
     // Define the fade duration in milliseconds
-    const fadeDuration = 500;
+    const fadeDuration = 400;
   
     // Calculate the opacity change per frame
     const opacityChange = 1 / (fadeDuration / 16.67); // Assuming 60 FPS (1000ms / 60 = 16.67ms)
@@ -223,18 +223,8 @@ function snapBack(){
 }
 
 function drawFrame(index, spriteSheet) {
-    if(textHide){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-    else{
-        if(recentSelectedSheet === scaredSheet){
-            ctx.clearRect(emoji[0].x-90, emoji[0].y+30, frameWidth, frameHeight);
-        }
-        else{
-            ctx.clearRect(emoji[0].x-90, emoji[0].y-20, frameWidth, frameHeight);
-        }
-    }
-    
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     if(textShown){
         showText('TO INTERACT', 'Swipe or Drag the Emoji');
     }
@@ -618,17 +608,27 @@ function updateFrame() {
         }
     }
     else{
-        neutralFrameCounter++;
-        if(neutralFrameCounter >= 3){
-            neutralFrameCounter = 0;
-            frameIndex++;
+        console.log("frame ",frameIndex);
+        if(frameIndex === 3 || frameIndex === 4 || frameIndex === 5){
+            neutralFrameCounter++;
+            if(neutralFrameCounter >= 3){
+                neutralFrameCounter = 0;
+                frameIndex++;
+            }
         }
+        else{
+            neutralFrameCounter++;
+            if(neutralFrameCounter >= 7){
+                neutralFrameCounter = 0;
+                frameIndex++;
+            }
+        }
+
         if (frameIndex >= directionAndIndex[directionIndex].index) {
             frameIndex = 0;
         }
 
     }
-
 
 } // Function
 
