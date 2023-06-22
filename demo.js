@@ -1,6 +1,13 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
+
+// const devicePixelRatio = window.devicePixelRatio || 1;
+// canvas.width = canvas.offsetWidth * devicePixelRatio;
+// canvas.height = canvas.offsetHeight * devicePixelRatio;
+
+
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -9,31 +16,124 @@ const x = canvas.width / 2;
 const y = canvas.height / 2;
 const heightThird = canvas.height - (canvas.height / 3.2);
 
-function showText(firstText, secondText) {
+// Load sptite sheet with happy emojis
+const happySheet = new Image();
+happySheet.src = 'assets/Sprites/Happy.png';
+
+// Load sptite sheet with sad emojis
+const sadSheet = new Image();
+sadSheet.src = 'assets/Sprites/Sad.png';
+
+// Load sptite sheet with neutral emojis
+const neutralSheet = new Image();
+neutralSheet.src = 'assets/Sprites/Neutral.png'
+
+// Load sptite sheet with scared emojis
+const scaredSheet = new Image();
+scaredSheet.src = 'assets/Sprites/Scared.png';
+
+// Load sptite sheet with scream emojis
+const screamSheet = new Image();
+screamSheet.src = 'assets/Sprites/Scream.png';
+
+const shadow = new Image();
+shadow.src = 'assets/shadow.png';
+
+const skipTutorialPng = new Image();
+skipTutorialPng.src = 'assets/skipButtonPng.png';
+
+const nextButtonPng = new Image();
+nextButtonPng.src = 'assets/nextButtonPng.png';
+
+const sadEmoji = new Image();
+sadEmoji.src = 'assets/sadEmoji.png';
+
+const happyEmoji = new Image();
+happyEmoji.src = 'assets/happyEmoji.png';
+
+const skipButtonWidth = 223;
+const skipButtonHeight = 38;
+
+const config = [
+    {xPosition: canvas.width-133-21, yPosition: 14, width: 133, height: 30, }, // For Skip Tutorial button
+    {xPosition: canvas.width-113-21, yPosition: canvas.height-38-14, width: 113, height: 38, }, // For Next Button
+    {xPosition: 0, yPosition: y+50, width: 150, height: 120, }, // For Sad Eomji
+    {xPosition: canvas.width-150, yPosition: y+50, width: 150, height: 120, }, // For Happy Emoji
+
+]
+
+function showText(firstText, secondText, screen) {
     // Set the font properties
-    ctx.font = '25px MagicalNight';
-    ctx.fillStyle = '#fff';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    // Draw the text on the canvas
-    ctx.fillText(firstText, x, (y + (y / 2)) - 100);
-    // Set the font properties
-    ctx.font = '25px Lexend';
-    ctx.fillStyle = 'rgb(235, 232, 232)';
-  
-    ctx.fillText(secondText, x, (y + (y / 2)) - 70);
+    if(screen === 0){
+        ctx.font = '700 30px Lexend';
+        ctx.lineHeight = 38;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.textAlign = 'center';    
+        // Draw the text on the canvas
+        ctx.fillText(firstText, x, (y -30));
+        // Set the font properties
+        ctx.font = '400 20px Lexend';
+        ctx.lineHeight = 25;
+        
+        ctx.fillText(secondText, x,y);
+    }
+    else if(screen === 1){
+        ctx.font = '700 30px Lexend';
+        ctx.lineHeight = 38;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.textAlign = 'left';
+        // ctx.textBaseline = 'middle';
+    
+    
+        // Draw the text on the canvas
+        ctx.fillText(firstText, 57, (y -30));
+        // Set the font properties
+        ctx.font = '400 20px Lexend';
+        ctx.lineHeight = 25;
+      
+        ctx.fillText(secondText, 57, y);
+    }
+    else if(screen === 2){
+        ctx.font = '700 30px Lexend';
+        ctx.lineHeight = 38;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.textAlign = 'right';
+    
+    
+        // Draw the text on the canvas
+        ctx.fillText(firstText, canvas.width-57, (y-30));
+        // Set the font properties
+        ctx.font = '400 20px Lexend';
+        ctx.lineHeight = 25;
+      
+        ctx.fillText(secondText, canvas.width-57, y);
+    }
+    else if(screen === 3){
+        ctx.font = '500 30px Lexend';
+        ctx.lineHeight = 38;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+    
+        // Draw the text on the canvas
+        ctx.fillText(firstText, x, (y-10));
+    }
+
   
 }
-  
-function fadeAwayText(firstText, secondText) {
+
+function fadeAwayText(firstText) {
     // Define the fade duration in milliseconds
-    const fadeDuration = 400;
+    textShown = false;
+    const fadeDuration = 200;
   
     // Calculate the opacity change per frame
     const opacityChange = 1 / (fadeDuration / 16.67); // Assuming 60 FPS (1000ms / 60 = 16.67ms)
   
     // Set the initial opacity
     let opacity = 1;
+    let font  = 30;
   
     // Create an interval to update the opacity
     const intervalId = setInterval(() => {
@@ -52,16 +152,69 @@ function fadeAwayText(firstText, secondText) {
         drawFrame(frameIndex, recentSelectedSheet);
 
         // Draw the text on the canvas with the current opacity
-        ctx.font = 'bold 25px MagicalNight';
-        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+
+        font = font-.50;
+        if(font === 29){
+            ctx.fillStyle = 'rgba(255, 255, 255, .98)';
+
+        }
+        if(font === 28){
+            ctx.fillStyle = 'rgba(255, 255, 255, .90)';
+
+        }
+        else if(font === 27){
+            ctx.fillStyle = 'rgba(255, 255, 255, .81)';
+
+        }
+        else if(font === 26){
+            ctx.fillStyle = 'rgba(255, 255, 255, .72)';
+
+        }
+        else if(font === 25){
+            // ctx.font = '400 25px Lexend';
+            ctx.fillStyle = 'rgba(255, 255, 255, .63)';
+
+
+        }
+        else if(font === 24){
+            ctx.fillStyle = 'rgba(255, 255, 255, .54)';
+
+        }
+        else if(font === 23){
+            ctx.fillStyle = 'rgba(255, 255, 255, .45)';
+
+        }
+        else if(font === 22){
+            // ctx.font = '300 25px Lexend';
+            ctx.fillStyle = 'rgba(255, 255, 255, .36)';
+
+        }
+        else if(font === 21){
+            ctx.fillStyle = 'rgba(255, 255, 255, .27)';
+
+        }
+        else if(font === 20){
+            ctx.fillStyle = 'rgba(255, 255, 255, .18)';
+
+        }
+        else if(font === 19){
+            ctx.fillStyle = 'rgba(255, 255, 255, .9)';
+
+        }
+        else if(font === 18){
+            ctx.fillStyle = 'rgba(255, 255, 255, .1)';
+
+        }
+        else{
+            ctx.fillStyle = 'rgba(255, 255, 255, -.02)';
+
+        }
+
+        // ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(firstText, x, (y + (y / 2)) - 100);
-
-        ctx.font = '20px Lexend';
-        ctx.fillStyle = `rgba(235, 232, 232, ${opacity})`;
-        ctx.fillText(secondText, x, (y + (y / 2)) - 70);
-
+        // Draw the text on the canvas
+        ctx.fillText(firstText, x, (y-10));
         // Check if the opacity has reached 0 (fully faded away)
         if (opacity <= 0) {
             // Stop the interval
@@ -99,6 +252,10 @@ const rightStartX = canvas.width;
 const rightStartY = canvas.height / 2;
 const rightEndX = 0;
 const rightEndY = canvas.height;
+
+const tutorialScreens = [
+    0,1,2,3
+]
 
 const directionAndIndex = [
     { direction: 'neutral', index: 8 },  // 0 Neutral png
@@ -157,40 +314,50 @@ let backgroundShow = true;
 let timeInterval = 30;
 let neutralFrameCounter = 0;
 let textHide = false;
+let recentScreen = 0;
 
-// Load sptite sheet with happy emojis
-const happySheet = new Image();
-happySheet.src = 'assets/Sprites/Happy.png';
-
-// Load sptite sheet with sad emojis
-const sadSheet = new Image();
-sadSheet.src = 'assets/Sprites/Sad.png';
-
-// Load sptite sheet with neutral emojis
-const neutralSheet = new Image();
-neutralSheet.src = 'assets/Sprites/Neutral.png'
-
-// Load sptite sheet with scared emojis
-const scaredSheet = new Image();
-scaredSheet.src = 'assets/Sprites/Scared.png';
-
-// Load sptite sheet with scream emojis
-const screamSheet = new Image();
-screamSheet.src = 'assets/Sprites/Scream.png';
-
-const shadow = new Image();
-shadow.src = 'assets/shadow.png';
-
-neutralSheet.onload = function () {
+window.onload = function () {
     canvas.addEventListener('touchstart', handleTouchStart);
     canvas.addEventListener('touchmove', handleTouchMove);
     canvas.addEventListener('touchend', handleTouchEnd);
-    showText('TO INTERACT', 'Swipe or Drag the Emoji');
     recentSelectedSheet = neutralSheet;
     directionIndex = 0;
     sheetChanged = neutralSheet;
+    startAnimationLoop(neutralSheet, 0);
 
 }
+
+function handleClick(clickX, clickY){
+    // This will check that click is happend on skip tutorial button or not
+    if (
+      clickX >= config[0].xPosition &&
+      clickX <= config[0].xPosition + config[0].width &&
+      clickY >= config[0].yPosition &&
+      clickY <= config[0].yPosition + config[0].height
+    ) {
+      // Button clicked! Handle the button click event here
+      recentScreen = 3;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      startAnimationLoop(recentSelectedSheet,0);
+    }
+    // This will check that click is happend on next button or not
+    else if (
+        clickX >= config[1].xPosition &&
+        clickX <= config[1].xPosition + config[1].width &&
+        clickY >= config[1].yPosition &&
+        clickY <= config[1].yPosition + config[1].height
+      ) {
+        // Button clicked! Handle the button click event here
+        recentScreen++;
+        if(recentScreen === 3){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        startAnimationLoop(recentSelectedSheet,0);
+      }
+
+
+}
+
 // Function to draw the frames on the canvas
 
 function snapBack(){
@@ -222,43 +389,122 @@ function snapBack(){
     }
 }
 
+function drawSkipTutorialButton(){
+    ctx.drawImage(skipTutorialPng, config[0].xPosition, config[0].yPosition, config[0].width, config[0].height);
+}
+
+function drawNextButton(){
+    ctx.drawImage(nextButtonPng, config[1].xPosition, config[1].yPosition, config[1].width, config[1].height);
+}
+
+function drawSadEmoji(){
+    ctx.drawImage(sadEmoji, config[2].xPosition, config[2].yPosition, config[2].width, config[2].height);
+}
+
+function drawHappyEmoji(){
+    ctx.drawImage(happyEmoji, config[3].xPosition, config[3].yPosition, config[3].width, config[3].height);
+}
+
+function drawFirstScreen(){
+    drawSkipTutorialButton();
+    drawNextButton();
+    showText('SWIPE', 'to share tour satisfaction level',0);
+}
+
+function drawSecondScreen(){
+    drawSadEmoji();
+    drawNextButton();
+    showText('LEFT', 'is negative, poorly, bad etc',1);
+}
+
+function drawThirdScreen(){
+    drawHappyEmoji();
+    drawNextButton();
+    showText('RIGHT', 'is, positive, great,good',2);
+}
+
+
 function drawFrame(index, spriteSheet) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if(!textHide && recentScreen === 3){
+        ctx.clearRect(emoji[0].x, emoji[0].y, frameWidth, frameHeight);
+        // ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if(textShown){
-        showText('TO INTERACT', 'Swipe or Drag the Emoji');
     }
-    let frameX = emoji[index].x;
-    let frameY = emoji[index].y;
-    if (startSnapBack) {
-        snapBack();
+    else{
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    if(backgroundShow){
-        ctx.drawImage(shadow, x - 161, emojiPositionY - 195, 320, 450);
-    }
-
-    if (index === 0) {
-        if (!gameStart) {
-            emoji[0].x = emojiPositionX;
-            emoji[0].y = emojiPositionY;
-            if (isDragging) {
-                gameStart = true;
+    if(recentScreen === 0){
+        drawFirstScreen();
+        let frameX = emoji[index].x;
+        let frameY = emoji[index].y;
+        if (index === 0) {
+            if (!gameStart) {
+                emoji[0].x = emojiPositionX;
+                emoji[0].y = emojiPositionY;
+                if (isDragging) {
+                    gameStart = true;
+                }
+            }
+            else {
+                emoji[0].x = frameX;
+                emoji[0].y = frameY;
             }
         }
-        else {
-            emoji[0].x = frameX;
-            emoji[0].y = frameY;
+        if(!modalDisplay){
+            if(index === 0){
+                frameX = 0;
+                frameY = 0;
+            }
+            ctx.drawImage(spriteSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), emoji[0].x, emoji[0].y, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
         }
+    }
+    else if(recentScreen === 1){
+        drawSecondScreen();
+    }
+    else if(recentScreen === 2){
+        drawThirdScreen();
+    }
+    else if(recentScreen === 3){
+        if(textShown){
+            showText('how are you feeling?', '',3);
+        }
+        if(backgroundShow){
+            ctx.drawImage(shadow, x - 161, emojiPositionY - 195, 320, 450);
+        }
+        let frameX = emoji[index].x;
+        let frameY = emoji[index].y;
+        if (startSnapBack) {
+            snapBack();
+        }
+        if (index === 0) {
+            if (!gameStart) {
+                emoji[0].x = emojiPositionX;
+                emoji[0].y = emojiPositionY;
+                if (isDragging) {
+                    gameStart = true;
+                }
+            }
+            else {
+                emoji[0].x = frameX;
+                emoji[0].y = frameY;
+            }
+        }
+        if(!modalDisplay){
+            if(index === 0){
+                frameX = 0;
+                frameY = 0;
+            }
+            ctx.drawImage(spriteSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), emoji[0].x, emoji[0].y, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
+        }
+
     }
 
-    if(!modalDisplay){
-        if(index === 0){
-            frameX = 0;
-            frameY = 0;
-        }
-        ctx.drawImage(spriteSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), emoji[0].x, emoji[0].y, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
+
+    if(recentScreen <=2){
+        stopAnimationLoop();
     }
+    
 }
 
 function setFrameIndexForSad(gap) {
@@ -463,15 +709,17 @@ function setFrameStats() {
 // Function to handle touchstart event
 function handleTouchStart(event) {
     event.preventDefault();
-    if(!modalDisplay){
-        const touch = event.touches[0];
-        const touchX = touch.clientX - canvas.offsetLeft; // Adjust for canvas position
-        const touchY = touch.clientY - canvas.offsetTop; // Adjust for canvas position
+    const touch = event.touches[0];
+    const touchX = touch.clientX - canvas.offsetLeft; // Adjust for canvas position
+    const touchY = touch.clientY - canvas.offsetTop;
+    if(recentScreen <= 2){
+        handleClick(touchX, touchY);
+    }
+
+    if(!modalDisplay && recentScreen === 3){
+ // Adjust for canvas position
         selectedFrame = findSelectedFrame(touchX, touchY);
         if (selectedFrame && !modalDisplay) {
-            if(textShown){
-                fadeAwayText('TO INTERACT', 'Swipe or Drag the Emoji');
-            }
             isDragging = true;
             prevTouchX = touchX;
             prevTouchY = touchY;
@@ -481,12 +729,11 @@ function handleTouchStart(event) {
 
 // Function to handle touchmove event
 function handleTouchMove(event) {
-
     event.preventDefault(); // Prevent default touchmove behavior
     if (isDragging && selectedFrame) {
-
-
-        textShown = false;
+        if(textShown){
+            fadeAwayText('how are you feeling');
+        }
         backgroundShow = false;
         const touch = event.touches[0];
         const touchX = touch.clientX - canvas.offsetLeft; // Adjust for canvas position
@@ -510,6 +757,7 @@ function handleTouchMove(event) {
 
 // Function to handle touchend event
 function handleTouchEnd(event) {
+    event.preventDefault();
     if(selectedFrame != null){
         if(recentSelectedSheet === scaredSheet){
             recentSelectedSheet = screamSheet;
@@ -608,7 +856,6 @@ function updateFrame() {
         }
     }
     else{
-        console.log("frame ",frameIndex);
         if(frameIndex === 3 || frameIndex === 4 || frameIndex === 5){
             neutralFrameCounter++;
             if(neutralFrameCounter >= 3){
@@ -639,9 +886,6 @@ function stopAnimationLoop() {
         animationInterval = null;
     }
 }
-
-startAnimationLoop(neutralSheet, 0);
-
 
 // Animate Sprite Sheet ends When not Dragging
 //////////////////////////////////////////////
@@ -703,8 +947,9 @@ function undoButtonClick() {
     timeInterval = 30;
     neutralFrameCounter = 0;
     textHide = false;
+    recentScreen = 0;
     startAnimationLoop(recentSelectedSheet, directionIndex);
-    showText('TO INTERACT', 'Swipe or Drag the Emoji');
+    showText('SWIPE', 'to share your satisfaction level',0);
     modal.style.display = "none";
 
 }
