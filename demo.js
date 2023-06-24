@@ -1,13 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-
-// const devicePixelRatio = window.devicePixelRatio || 1;
-// canvas.width = canvas.offsetWidth * devicePixelRatio;
-// canvas.height = canvas.offsetHeight * devicePixelRatio;
-
-
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -40,10 +33,10 @@ const shadow = new Image();
 shadow.src = 'assets/shadow.png';
 
 const skipTutorialPng = new Image();
-skipTutorialPng.src = 'assets/skipButtonPng.png';
+skipTutorialPng.src = 'assets/skipPng.png';
 
 const nextButtonPng = new Image();
-nextButtonPng.src = 'assets/nextButtonPng.png';
+nextButtonPng.src = 'assets/nextPng.png';
 
 const sadEmoji = new Image();
 sadEmoji.src = 'assets/sadEmoji.png';
@@ -51,15 +44,14 @@ sadEmoji.src = 'assets/sadEmoji.png';
 const happyEmoji = new Image();
 happyEmoji.src = 'assets/happyEmoji.png';
 
-const skipButtonWidth = 223;
-const skipButtonHeight = 38;
+const skipButtonWidth = 30;
+const skipButtonHeight = 30;
 
 const config = [
-    {xPosition: canvas.width-133-21, yPosition: 14, width: 133, height: 30, }, // For Skip Tutorial button
-    {xPosition: canvas.width-113-21, yPosition: canvas.height-38-14, width: 113, height: 38, }, // For Next Button
-    {xPosition: 0, yPosition: y+50, width: 150, height: 120, }, // For Sad Eomji
-    {xPosition: canvas.width-150, yPosition: y+50, width: 150, height: 120, }, // For Happy Emoji
-
+    {xPosition: canvas.width-20-10, yPosition: 10, width: 20, height: 20, }, // For Skip Tutorial button
+    {xPosition: canvas.width-20-10, yPosition: canvas.height-20-10, width: 20, height: 20, }, // For Next Button
+    {xPosition: -10, yPosition: y+50, width: 92, height: 87, }, // For Sad Eomji
+    {xPosition: canvas.width-77 , yPosition: y+50, width: 92, height: 87, }, // For Happy Emoji
 ]
 
 function showText(firstText, secondText, screen) {
@@ -324,7 +316,6 @@ window.onload = function () {
     directionIndex = 0;
     sheetChanged = neutralSheet;
     startAnimationLoop(neutralSheet, 0);
-
 }
 
 function handleClick(clickX, clickY){
@@ -390,25 +381,123 @@ function snapBack(){
 }
 
 function drawSkipTutorialButton(){
+    ctx.font = '400 30px Lexend';
+    ctx.fillStyle = '#0085FF';
+    ctx.textAlign = 'right';
+    ctx.fillText('Skip', config[0].xPosition-10, config[0].yPosition+19);
     ctx.drawImage(skipTutorialPng, config[0].xPosition, config[0].yPosition, config[0].width, config[0].height);
 }
 
 function drawNextButton(){
+    ctx.font = '400 30px Lexend';
+    ctx.fillStyle = '#0085FF';
+    ctx.textAlign = 'right';
+    ctx.fillText('Next', config[1].xPosition-10, config[1].yPosition+19);
     ctx.drawImage(nextButtonPng, config[1].xPosition, config[1].yPosition, config[1].width, config[1].height);
 }
 
 function drawSadEmoji(){
-    ctx.drawImage(sadEmoji, config[2].xPosition, config[2].yPosition, config[2].width, config[2].height);
+    const index = 13;
+    const frameX = emoji[index].x;
+    const frameY = emoji[index].y;
+    console.log("p ",config[2].xPosition + (config[2].width / 2) + 80, config[2].xPosition + (config[2].width / 2) + 95)
+
+    const coordinates = [
+        { x: 70, y: config[2].yPosition + (config[2].height / 2) -15 },
+        { x: config[2].xPosition + (config[2].width / 2) + 95, y: config[2].yPosition + (config[2].height / 2) + 45 },
+        { x: config[2].xPosition + (config[2].width / 2) + 80, y: config[2].yPosition + (config[2].height / 2) + 65 },
+        { x: 25, y: config[2].yPosition + config[2].height-10 },
+      ];
+
+    // Find the leftmost and rightmost x-coordinates of the polygon
+    let minX = Infinity;
+    let maxX = -Infinity;
+    coordinates.forEach((point) => {
+    minX = Math.min(minX, point.x);
+    maxX = Math.max(maxX, point.x);
+    });
+
+    // Create a linear gradient from left to right
+    const gradient = ctx.createLinearGradient(minX, 0, maxX, 0);
+    gradient.addColorStop(0, 'rgb(254, 157, 33)');
+    gradient.addColorStop(1, 'rgb(255, 255, 0,0)');
+
+    // Create a clipping path for the polygon shape
+    ctx.save();
+    // Create a clipping path for the polygon shape
+    ctx.beginPath();
+    ctx.moveTo(coordinates[0].x, coordinates[0].y);
+    ctx.lineTo(coordinates[1].x, coordinates[1].y);
+    ctx.lineTo(coordinates[2].x, coordinates[2].y);
+    ctx.lineTo(coordinates[3].x, coordinates[3].y);
+    ctx.closePath();
+
+    // Fill the polygon with the gradient
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    ctx.restore();
+
+    // Draw the image
+    ctx.drawImage(sadSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), config[2].xPosition, config[2].yPosition, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
+    
 }
 
 function drawHappyEmoji(){
-    ctx.drawImage(happyEmoji, config[3].xPosition, config[3].yPosition, config[3].width, config[3].height);
+    const index = 11;
+    const frameX = emoji[index].x;
+    const frameY = emoji[index].y;
+    console.log("p ",(config[3].xPosition)+10," ",(config[3].xPosition-51))
+
+    const coordinates = [
+        { x: config[3].xPosition+5, y: config[3].yPosition + (config[3].height / 2) -15 },
+        { x: config[3].xPosition-51, y: config[3].yPosition + (config[3].height / 2) + 45 },
+        { x: config[3].xPosition-36, y: config[3].yPosition + (config[3].height / 2) + 65 },
+        { x: config[3].xPosition+68, y: config[3].yPosition + config[3].height-12 },
+      ];
+
+    // Find the leftmost and rightmost x-coordinates of the polygon
+    let minX = Infinity;
+    let maxX = -Infinity;
+    coordinates.forEach((point) => {
+    minX = Math.min(minX, point.x);
+    maxX = Math.max(maxX, point.x);
+    });
+
+    // Create a linear gradient from left to right
+    const gradient = ctx.createLinearGradient(maxX, 0, minX, 0);
+    gradient.addColorStop(0, 'rgb(254, 157, 33)');
+    gradient.addColorStop(1, 'rgb(255, 255, 0,0)');
+
+    // Create a clipping path for the polygon shape
+    ctx.save();
+    // Create a clipping path for the polygon shape
+    ctx.beginPath();
+    ctx.moveTo(coordinates[0].x, coordinates[0].y);
+    ctx.lineTo(coordinates[1].x, coordinates[1].y);
+    ctx.lineTo(coordinates[2].x, coordinates[2].y);
+    ctx.lineTo(coordinates[3].x, coordinates[3].y);
+    ctx.closePath();
+
+    // Fill the polygon with the gradient
+    ctx.fillStyle = gradient;
+    ctx.fill();
+
+    ctx.restore();
+
+
+
+
+
+
+    ctx.drawImage(happySheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), config[3].xPosition, config[3].yPosition, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
+
 }
 
 function drawFirstScreen(){
     drawSkipTutorialButton();
     drawNextButton();
-    showText('SWIPE', 'to share tour satisfaction level',0);
+    showText('SWIPE', 'to share your satisfaction level',0);
 }
 
 function drawSecondScreen(){
@@ -422,7 +511,6 @@ function drawThirdScreen(){
     drawNextButton();
     showText('RIGHT', 'is, positive, great,good',2);
 }
-
 
 function drawFrame(index, spriteSheet) {
     if(!textHide && recentScreen === 3){
@@ -879,7 +967,6 @@ function updateFrame() {
 
 } // Function
 
-
 function stopAnimationLoop() {
     if (animationInterval) {
         clearInterval(animationInterval);
@@ -947,13 +1034,11 @@ function undoButtonClick() {
     timeInterval = 30;
     neutralFrameCounter = 0;
     textHide = false;
-    recentScreen = 0;
+    recentScreen = 3;
     startAnimationLoop(recentSelectedSheet, directionIndex);
-    showText('SWIPE', 'to share your satisfaction level',0);
     modal.style.display = "none";
 
 }
-
 
 // Code for Popup ends from here
 ////////////////////////////////
