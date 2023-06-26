@@ -317,7 +317,7 @@ function snapBack(){
 }
 
 function drawSkipTutorialButton(){
-    ctx.font = '400 30px Lexend';
+    ctx.font = '400 20px Lexend';
     ctx.fillStyle = '#0085FF';
     ctx.textAlign = 'right';
     ctx.fillText('Skip', config[0].xPosition-10, config[0].yPosition+19);
@@ -325,7 +325,7 @@ function drawSkipTutorialButton(){
 }
 
 function drawNextButton(){
-    ctx.font = '400 30px Lexend';
+    ctx.font = '400 20px Lexend';
     ctx.fillStyle = '#0085FF';
     ctx.textAlign = 'right';
     ctx.fillText('Next', config[1].xPosition-10, config[1].yPosition+19);
