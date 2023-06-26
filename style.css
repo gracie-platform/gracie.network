@@ -33,6 +33,19 @@
   src: url('./font/Magical_Night.ttf');
 }
 
+@font-face {
+  font-family: MagicalNight;
+  src:url(font/Magical\ Night.ttf) format('truetype');
+  src:url(font/Magical\ Night.otf) format('opentype');
+  src:url(font/Magical\ Night.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: Lexend;
+  src:url(font/Lexend-VariableFont_wght.ttf) format('truetype');
+}
+
+
 h1,
 h3,
 h3,
