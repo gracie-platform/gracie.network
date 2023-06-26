@@ -134,11 +134,10 @@ let textHide = false;
 let recentScreen = 0;
 
 
-
 function showText(firstText, secondText, screen) {
     // Set the font properties
     if(screen === 0){
-        ctx.font = '700 30px Lexend';
+        ctx.font = '500 30px Lexend';
         ctx.lineHeight = 38;
         ctx.fillStyle = '#FFFFFF';
         ctx.textAlign = 'center';    
@@ -151,7 +150,7 @@ function showText(firstText, secondText, screen) {
         ctx.fillText(secondText, x,y);
     }
     else if(screen === 1){
-        ctx.font = '700 30px Lexend';
+        ctx.font = '500 30px Lexend';
         ctx.lineHeight = 38;
         ctx.fillStyle = '#FFFFFF';
         ctx.textAlign = 'left';
@@ -167,7 +166,7 @@ function showText(firstText, secondText, screen) {
         ctx.fillText(secondText, 57, y);
     }
     else if(screen === 2){
-        ctx.font = '700 30px Lexend';
+        ctx.font = '500 30px Lexend';
         ctx.lineHeight = 38;
         ctx.fillStyle = '#FFFFFF';
         ctx.textAlign = 'right';
@@ -430,19 +429,19 @@ function drawHappyEmoji(){
 function drawFirstScreen(){
     drawSkipTutorialButton();
     drawNextButton();
-    showText('SWIPE', 'to share your satisfaction',0);
+    showText('swipe', 'to share your satisfaction',0);
 }
 
 function drawSecondScreen(){
     drawSadEmoji();
     drawNextButton();
-    showText('LEFT', 'is negative, poor, bad',1);
+    showText('left', 'is negative, poor, bad',1);
 }
 
 function drawThirdScreen(){
     drawHappyEmoji();
     drawNextButton();
-    showText('RIGHT', 'is positive, great, good',2);
+    showText('right', 'is positive, great, good',2);
 }
 
 function drawFrame(index, spriteSheet) {
