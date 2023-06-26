@@ -504,7 +504,7 @@ function drawFrame(index, spriteSheet) {
     }
     else if(recentScreen === 3){
         if(textShown){
-            showText(textScreen3, '',3);
+            showText(text7, '',3);
         }
         if(backgroundShow){
             ctx.drawImage(shadow, x - 161, emojiPositionY - 195, 320, 450);
