@@ -320,7 +320,7 @@ function drawSkipTutorialButton(){
     ctx.font = '400 20px Lexend';
     ctx.fillStyle = '#0085FF';
     ctx.textAlign = 'right';
-    ctx.textBaseline = 'middle';
+    ctx.textBaseline = 'bottom';
     ctx.fillText('Skip', config[0].xPosition-10, config[0].yPosition+19);
     ctx.drawImage(skipTutorialPng, config[0].xPosition, config[0].yPosition, config[0].width, config[0].height);
 }
@@ -329,7 +329,7 @@ function drawNextButton(){
     ctx.font = '400 20px Lexend';
     ctx.fillStyle = '#0085FF';
     ctx.textAlign = 'right';
-    ctx.textBaseline = 'middle';
+    ctx.textBaseline = 'bottom';
     ctx.fillText('Next', config[1].xPosition-10, config[1].yPosition+19);
     ctx.drawImage(nextButtonPng, config[1].xPosition, config[1].yPosition, config[1].width, config[1].height);
 }
