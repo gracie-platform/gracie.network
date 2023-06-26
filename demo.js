@@ -1,3 +1,11 @@
+const text1 = 'swipe'
+const text2 = 'to share your satisfaction'
+const text3 = 'left'
+const text4 = 'is negative, poor, bad'
+const text5 = 'right'
+const text6 = 'is positive, great, good'
+const text7 = 'how are you feeling?'
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -439,19 +447,19 @@ function drawHappyEmoji(){
 function drawFirstScreen(){
     drawSkipTutorialButton();
     drawNextButton();
-    showText('swipe', 'to share your satisfaction',0);
+    showText(text1, text2,0);
 }
 
 function drawSecondScreen(){
     drawSadEmoji();
     drawNextButton();
-    showText('left', 'is negative, poor, bad',1);
+    showText(text3, text4,1);
 }
 
 function drawThirdScreen(){
     drawHappyEmoji();
     drawNextButton();
-    showText('right', 'is positive, great, good',2);
+    showText(text5, text6,2);
 }
 
 function drawFrame(index, spriteSheet) {
@@ -496,7 +504,7 @@ function drawFrame(index, spriteSheet) {
     }
     else if(recentScreen === 3){
         if(textShown){
-            showText('how are you feeling?', '',3);
+            showText(textScreen3, '',3);
         }
         if(backgroundShow){
             ctx.drawImage(shadow, x - 161, emojiPositionY - 195, 320, 450);
@@ -758,7 +766,7 @@ function handleTouchMove(event) {
     event.preventDefault(); // Prevent default touchmove behavior
     if (isDragging && selectedFrame) {
         if(textShown){
-            fadeAwayText('how are you feeling?');
+            fadeAwayText(text7);
         }
         backgroundShow = false;
         const touch = event.touches[0];
