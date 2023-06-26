@@ -38,12 +38,6 @@ skipTutorialPng.src = 'assets/skipPng.png';
 const nextButtonPng = new Image();
 nextButtonPng.src = 'assets/nextPng.png';
 
-const sadEmoji = new Image();
-sadEmoji.src = 'assets/sadEmoji.png';
-
-const happyEmoji = new Image();
-happyEmoji.src = 'assets/happyEmoji.png';
-
 const skipButtonWidth = 30;
 const skipButtonHeight = 30;
 
@@ -53,6 +47,93 @@ const config = [
     {xPosition: -10, yPosition: y+50, width: 92, height: 87, }, // For Sad Eomji
     {xPosition: canvas.width-77 , yPosition: y+50, width: 92, height: 87, }, // For Happy Emoji
 ]
+
+// Variables for state positions
+const neutralStatePostions = canvas.height - y / 2;
+const leftPadding = 105;
+const rightPadding = 109;
+const topPadding = 138;
+const bottomPadding = 143;
+const frameIntervals = 3;
+const distanceFromLeft = x - 45;
+const distanceFromRight = x - 45;
+
+// frame on x-axis 92
+// frame on y-axis 87
+
+// Left Diagonal line start and end points
+const leftStartX = 0;
+const leftStartY = canvas.height / 2;
+const leftEndX = canvas.width;
+const leftEndY = canvas.height;
+
+// Left Diagonal line start and end points
+const rightStartX = canvas.width;
+const rightStartY = canvas.height / 2;
+const rightEndX = 0;
+const rightEndY = canvas.height;
+
+const directionAndIndex = [
+    { direction: 'neutral', index: 8 },  // 0 Neutral png
+    { direction: 'happy', index: 11 }, // 1 Happy png
+    { direction: 'sad', index: 13 }, // 2 Sad png
+    { direction: 'scared', index: 15 }, // 3 Scared png\
+    { direction: 'scream', index: 15 }, // 4 Scared png
+]
+
+// frame dimensions
+const frameWidth = 300; // Width of each frame
+const frameHeight = 373; // Height of each frame
+const emoji = [
+    { x: 0, y: 0, index: 0 }, // Frame 1
+    { x: frameWidth * 1, y: 0, index: 1 }, // Frame 2
+    { x: frameWidth * 2, y: 0, index: 2 }, // Frame 3
+    { x: frameWidth * 3, y: 0, index: 3 }, // Frame 4
+    { x: frameWidth * 4, y: 0, index: 4 }, // Frame 5
+    { x: 0, y: frameHeight, index: 5 }, // Frame 6
+    { x: frameWidth * 1, y: frameHeight, index: 6 }, // Frame 7
+    { x: frameWidth * 2, y: frameHeight, index: 7 }, // Frame 8
+    { x: frameWidth * 3, y: frameHeight, index: 8 }, // Frame 9
+    { x: frameWidth * 4, y: frameHeight, index: 9 }, // Frame 10
+    { x: 0, y: frameHeight * 2, index: 10 }, // Frame 11
+    { x: frameWidth * 1, y: frameHeight * 2, index: 11 }, // Frame 12
+    { x: frameWidth * 2, y: frameHeight * 2, index: 12 }, // Frame 13
+    { x: frameWidth * 3, y: frameHeight * 2, index: 13 }, // Frame 14
+    { x: frameWidth * 4, y: frameHeight * 2, index: 14 }, // Frame 15
+    { x: 0, y: frameHeight * 3, index: 15 }, // Frame 16
+];
+
+
+let emojiPositionX = (x) - 45;
+let emojiPositionY = (y + (y / 2)) - 45;
+let frameIndex = 0;
+let selectedFrame = null;
+let isDragging = false;
+let prevTouchX = 0;
+let prevTouchY = 0;
+let gameStart = false;
+let previousSelectedSheet = null;
+let recentSelectedSheet = null;
+let previousFromLeftDigonal = 'right';
+let previousFromRightDigonal = 'left';
+let directionIndex = 0;
+let animationInterval = null;
+let fromLeftDiagonal = null;
+let fromRightDiagonal = null;
+let changingDirection = false;
+let intervalComplete = false;
+let startSnapBack = false;
+let textShown = true;
+let distanceFromEdge = x;
+let sheetChanged = null;
+let modalDisplay = false;
+let backgroundShow = true;
+let timeInterval = 30;
+let neutralFrameCounter = 0;
+let textHide = false;
+let recentScreen = 0;
+
+
 
 function showText(firstText, secondText, screen) {
     // Set the font properties
@@ -118,7 +199,7 @@ function showText(firstText, secondText, screen) {
 function fadeAwayText(firstText) {
     // Define the fade duration in milliseconds
     textShown = false;
-    const fadeDuration = 200;
+    const fadeDuration = 350;
   
     // Calculate the opacity change per frame
     const opacityChange = 1 / (fadeDuration / 16.67); // Assuming 60 FPS (1000ms / 60 = 16.67ms)
@@ -146,65 +227,11 @@ function fadeAwayText(firstText) {
         // Draw the text on the canvas with the current opacity
 
         font = font-.50;
-        if(font === 29){
-            ctx.fillStyle = 'rgba(255, 255, 255, .98)';
-
-        }
-        if(font === 28){
-            ctx.fillStyle = 'rgba(255, 255, 255, .90)';
-
-        }
-        else if(font === 27){
-            ctx.fillStyle = 'rgba(255, 255, 255, .81)';
-
-        }
-        else if(font === 26){
-            ctx.fillStyle = 'rgba(255, 255, 255, .72)';
-
-        }
-        else if(font === 25){
-            // ctx.font = '400 25px Lexend';
-            ctx.fillStyle = 'rgba(255, 255, 255, .63)';
-
-
-        }
-        else if(font === 24){
-            ctx.fillStyle = 'rgba(255, 255, 255, .54)';
-
-        }
-        else if(font === 23){
-            ctx.fillStyle = 'rgba(255, 255, 255, .45)';
-
-        }
-        else if(font === 22){
-            // ctx.font = '300 25px Lexend';
-            ctx.fillStyle = 'rgba(255, 255, 255, .36)';
-
-        }
-        else if(font === 21){
-            ctx.fillStyle = 'rgba(255, 255, 255, .27)';
-
-        }
-        else if(font === 20){
-            ctx.fillStyle = 'rgba(255, 255, 255, .18)';
-
-        }
-        else if(font === 19){
-            ctx.fillStyle = 'rgba(255, 255, 255, .9)';
-
-        }
-        else if(font === 18){
-            ctx.fillStyle = 'rgba(255, 255, 255, .1)';
-
-        }
-        else{
-            ctx.fillStyle = 'rgba(255, 255, 255, -.02)';
-
-        }
 
         // ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
+        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
         // Draw the text on the canvas
         ctx.fillText(firstText, x, (y-10));
         // Check if the opacity has reached 0 (fully faded away)
@@ -220,93 +247,6 @@ function fadeAwayText(firstText) {
 ////////////////////////////////////////
 ////////////////////////////////////////
 
-// Variables for state positions
-const neutralStatePostions = canvas.height - y / 2;
-const leftPadding = 105;
-const rightPadding = 109;
-const topPadding = 138;
-const bottomPadding = 143;
-const frameIntervals = 3;
-const distanceFromLeft = x - 45;
-const distanceFromRight = x - 45;
-
-// frame on x-axis 92
-// frame on y-axis 87
-
-// Left Diagonal line start and end points
-const leftStartX = 0;
-const leftStartY = canvas.height / 2;
-const leftEndX = canvas.width;
-const leftEndY = canvas.height;
-
-// Left Diagonal line start and end points
-const rightStartX = canvas.width;
-const rightStartY = canvas.height / 2;
-const rightEndX = 0;
-const rightEndY = canvas.height;
-
-const tutorialScreens = [
-    0,1,2,3
-]
-
-const directionAndIndex = [
-    { direction: 'neutral', index: 8 },  // 0 Neutral png
-    { direction: 'happy', index: 11 }, // 1 Happy png
-    { direction: 'sad', index: 13 }, // 2 Sad png
-    { direction: 'scared', index: 15 }, // 3 Scared png\
-    { direction: 'scream', index: 15 }, // 4 Scared png
-]
-
-// frame dimensions
-const frameWidth = 300; // Width of each frame
-const frameHeight = 373; // Height of each frame
-const emoji = [
-    { x: 0, y: 0, index: 0 }, // Frame 1
-    { x: frameWidth * 1, y: 0, index: 1 }, // Frame 2
-    { x: frameWidth * 2, y: 0, index: 2 }, // Frame 3
-    { x: frameWidth * 3, y: 0, index: 3 }, // Frame 4
-    { x: frameWidth * 4, y: 0, index: 4 }, // Frame 5
-    { x: 0, y: frameHeight, index: 5 }, // Frame 6
-    { x: frameWidth * 1, y: frameHeight, index: 6 }, // Frame 7
-    { x: frameWidth * 2, y: frameHeight, index: 7 }, // Frame 8
-    { x: frameWidth * 3, y: frameHeight, index: 8 }, // Frame 9
-    { x: frameWidth * 4, y: frameHeight, index: 9 }, // Frame 10
-    { x: 0, y: frameHeight * 2, index: 10 }, // Frame 11
-    { x: frameWidth * 1, y: frameHeight * 2, index: 11 }, // Frame 12
-    { x: frameWidth * 2, y: frameHeight * 2, index: 12 }, // Frame 13
-    { x: frameWidth * 3, y: frameHeight * 2, index: 13 }, // Frame 14
-    { x: frameWidth * 4, y: frameHeight * 2, index: 14 }, // Frame 15
-    { x: 0, y: frameHeight * 3, index: 15 }, // Frame 16
-];
-
-let emojiPositionX = (x) - 45;
-let emojiPositionY = (y + (y / 2)) - 45;
-let frameIndex = 0;
-let selectedFrame = null;
-let isDragging = false;
-let prevTouchX = 0;
-let prevTouchY = 0;
-let gameStart = false;
-let previousSelectedSheet = null;
-let recentSelectedSheet = null;
-let previousFromLeftDigonal = 'right';
-let previousFromRightDigonal = 'left';
-let directionIndex = 0;
-let animationInterval = null;
-let fromLeftDiagonal = null;
-let fromRightDiagonal = null;
-let changingDirection = false;
-let intervalComplete = false;
-let startSnapBack = false;
-let textShown = true;
-let distanceFromEdge = x;
-let sheetChanged = null;
-let modalDisplay = false;
-let backgroundShow = true;
-let timeInterval = 30;
-let neutralFrameCounter = 0;
-let textHide = false;
-let recentScreen = 0;
 
 window.onload = function () {
     canvas.addEventListener('touchstart', handleTouchStart);
@@ -321,10 +261,10 @@ window.onload = function () {
 function handleClick(clickX, clickY){
     // This will check that click is happend on skip tutorial button or not
     if (
-      clickX >= config[0].xPosition &&
-      clickX <= config[0].xPosition + config[0].width &&
-      clickY >= config[0].yPosition &&
-      clickY <= config[0].yPosition + config[0].height
+      clickX >= canvas.width/2 &&
+      clickX <= canvas.width &&
+      clickY >= 0 &&
+      clickY <= 97
     ) {
       // Button clicked! Handle the button click event here
       recentScreen = 3;
@@ -333,10 +273,10 @@ function handleClick(clickX, clickY){
     }
     // This will check that click is happend on next button or not
     else if (
-        clickX >= config[1].xPosition &&
-        clickX <= config[1].xPosition + config[1].width &&
-        clickY >= config[1].yPosition &&
-        clickY <= config[1].yPosition + config[1].height
+        clickX >= canvas.width/2 &&
+        clickX <= canvas.width &&
+        clickY >= canvas.height-97 &&
+        clickY <= canvas.height
       ) {
         // Button clicked! Handle the button click event here
         recentScreen++;
@@ -344,13 +284,10 @@ function handleClick(clickX, clickY){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
         startAnimationLoop(recentSelectedSheet,0);
-      }
-
-
+    }
 }
 
 // Function to draw the frames on the canvas
-
 function snapBack(){
     const spring = 18;
     const toleranceDistance = 18;
@@ -400,8 +337,6 @@ function drawSadEmoji(){
     const index = 13;
     const frameX = emoji[index].x;
     const frameY = emoji[index].y;
-    console.log("p ",config[2].xPosition + (config[2].width / 2) + 80, config[2].xPosition + (config[2].width / 2) + 95)
-
     const coordinates = [
         { x: 70, y: config[2].yPosition + (config[2].height / 2) -15 },
         { x: config[2].xPosition + (config[2].width / 2) + 95, y: config[2].yPosition + (config[2].height / 2) + 45 },
@@ -440,20 +375,18 @@ function drawSadEmoji(){
 
     // Draw the image
     ctx.drawImage(sadSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), config[2].xPosition, config[2].yPosition, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
-    
 }
 
 function drawHappyEmoji(){
     const index = 11;
     const frameX = emoji[index].x;
     const frameY = emoji[index].y;
-    console.log("p ",(config[3].xPosition)+10," ",(config[3].xPosition-51))
 
     const coordinates = [
-        { x: config[3].xPosition+5, y: config[3].yPosition + (config[3].height / 2) -15 },
-        { x: config[3].xPosition-51, y: config[3].yPosition + (config[3].height / 2) + 45 },
-        { x: config[3].xPosition-36, y: config[3].yPosition + (config[3].height / 2) + 65 },
-        { x: config[3].xPosition+68, y: config[3].yPosition + config[3].height-12 },
+        { x: config[3].xPosition+8, y: config[3].yPosition + (config[3].height / 2) -15 },
+        { x: config[3].xPosition-48, y: config[3].yPosition + (config[3].height / 2) + 45 },
+        { x: config[3].xPosition-33, y: config[3].yPosition + (config[3].height / 2) + 65 },
+        { x: config[3].xPosition+65, y: config[3].yPosition + config[3].height-10 },
       ];
 
     // Find the leftmost and rightmost x-coordinates of the polygon
@@ -497,26 +430,25 @@ function drawHappyEmoji(){
 function drawFirstScreen(){
     drawSkipTutorialButton();
     drawNextButton();
-    showText('SWIPE', 'to share your satisfaction level',0);
+    showText('SWIPE', 'to share your satisfaction',0);
 }
 
 function drawSecondScreen(){
     drawSadEmoji();
     drawNextButton();
-    showText('LEFT', 'is negative, poorly, bad etc',1);
+    showText('LEFT', 'is negative, poor, bad',1);
 }
 
 function drawThirdScreen(){
     drawHappyEmoji();
     drawNextButton();
-    showText('RIGHT', 'is, positive, great,good',2);
+    showText('RIGHT', 'is positive, great, good',2);
 }
 
 function drawFrame(index, spriteSheet) {
+
     if(!textHide && recentScreen === 3){
         ctx.clearRect(emoji[0].x, emoji[0].y, frameWidth, frameHeight);
-        // ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     }
     else{
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -585,14 +517,10 @@ function drawFrame(index, spriteSheet) {
             }
             ctx.drawImage(spriteSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), emoji[0].x, emoji[0].y, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
         }
-
     }
-
-
     if(recentScreen <=2){
         stopAnimationLoop();
-    }
-    
+    }  
 }
 
 function setFrameIndexForSad(gap) {
@@ -651,10 +579,10 @@ function setFrameIndexForSad(gap) {
     else if (position <= frameTwelve && position >= frameThirteen) { // Frame Twelve
         frameIndex = 12;
     }
-    else if (position <= frameThirteen && position > 0) {  // Frame Thirteen
+    else if (position <= frameThirteen && position >= 0) {  // Frame Thirteen
         frameIndex = 13;
     }
-    else {
+    else if(position <= -10){
         reached = true;
     }
     drawFrame(frameIndex, recentSelectedSheet);
@@ -678,6 +606,7 @@ function setFrameIndexForHappy(gap) {
     const frameNine = distanceFromRight + (9 * gap);
     const frameTen = distanceFromRight + (10 * gap);
     const frameEleven = distanceFromRight + (11 * gap);
+
     if (position >= frameZero && position <= frameOne) { // Frame Zero
         frameIndex = 0;
     }
@@ -714,7 +643,7 @@ function setFrameIndexForHappy(gap) {
     else if (position >= frameEleven && position + 90 < canvas.width) { // Frame Eleven
         frameIndex = 11;
     }
-    else {
+    else if(position+88 >= canvas.width+10) {
         reached = true;
     }
     drawFrame(frameIndex, recentSelectedSheet);
@@ -828,8 +757,8 @@ function handleTouchMove(event) {
         const touchY = touch.clientY - canvas.offsetTop; // Adjust for canvas position
 
 
-        selectedFrame.x = Math.max(0, Math.min(selectedFrame.x, canvas.width - (frameWidth - (leftPadding + rightPadding))));
-        selectedFrame.y = Math.max(0, Math.min(selectedFrame.y, canvas.height - (frameHeight - (topPadding + bottomPadding))));
+        selectedFrame.x = Math.max(-10, Math.min(selectedFrame.x, canvas.width - (frameWidth - (leftPadding + rightPadding))+10));
+        selectedFrame.y = Math.max(-10, Math.min(selectedFrame.y, canvas.height - (frameHeight - (topPadding + bottomPadding))+10));
         const deltaX = touchX - prevTouchX;
         const deltaY = touchY - prevTouchY;
 
@@ -1035,6 +964,7 @@ function undoButtonClick() {
     neutralFrameCounter = 0;
     textHide = false;
     recentScreen = 3;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     startAnimationLoop(recentSelectedSheet, directionIndex);
     modal.style.display = "none";
 
