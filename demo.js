@@ -41,6 +41,14 @@ nextButtonPng.src = 'assets/nextPng.png';
 const skipButtonWidth = 30;
 const skipButtonHeight = 30;
 
+const font1 = new FontFace('MagicNight', 'url(https://myfont.woff2)');
+
+font1.load().then((font) => {
+  document.fonts.add(font);
+
+  console.log('Font loaded');
+});
+
 const config = [
     {xPosition: canvas.width-20-10, yPosition: 10, width: 20, height: 20, }, // For Skip Tutorial button
     {xPosition: canvas.width-20-10, yPosition: canvas.height-20-10, width: 20, height: 20, }, // For Next Button
@@ -198,7 +206,7 @@ function showText(firstText, secondText, screen) {
 function fadeAwayText(firstText) {
     // Define the fade duration in milliseconds
     textShown = false;
-    const fadeDuration = 350;
+    const fadeDuration = 600;
   
     // Calculate the opacity change per frame
     const opacityChange = 1 / (fadeDuration / 16.67); // Assuming 60 FPS (1000ms / 60 = 16.67ms)
@@ -750,7 +758,7 @@ function handleTouchMove(event) {
     event.preventDefault(); // Prevent default touchmove behavior
     if (isDragging && selectedFrame) {
         if(textShown){
-            fadeAwayText('how are you feeling');
+            fadeAwayText('how are you feeling?');
         }
         backgroundShow = false;
         const touch = event.touches[0];
