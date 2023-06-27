@@ -5,6 +5,7 @@ const text4 = 'is negative, poor, bad'
 const text5 = 'right'
 const text6 = 'is positive, great, good'
 const text7 = 'how are you feeling?'
+const openOnDesktop = 'Use mobile to play this game';
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -49,13 +50,7 @@ nextButtonPng.src = 'assets/nextPng.png';
 const skipButtonWidth = 30;
 const skipButtonHeight = 30;
 
-const font1 = new FontFace('MagicNight', 'url(https://myfont.woff2)');
-
-font1.load().then((font) => {
-  document.fonts.add(font);
-
-  console.log('Font loaded');
-});
+const fontToLoad = new FontFace('Lexend', 'url(font/Lexend-VariableFont_wght.ttf)');
 
 const config = [
     {xPosition: canvas.width-20-10, yPosition: 10, width: 20, height: 20, }, // For Skip Tutorial button
@@ -89,6 +84,10 @@ const rightStartY = canvas.height / 2;
 const rightEndX = 0;
 const rightEndY = canvas.height;
 
+const modal = document.getElementById('myModal');
+const closeBtn = modal.querySelector(".close");
+const undoBtn = modal.querySelector(".undo");
+
 const directionAndIndex = [
     { direction: 'neutral', index: 8 },  // 0 Neutral png
     { direction: 'happy', index: 11 }, // 1 Happy png
@@ -118,7 +117,6 @@ const emoji = [
     { x: frameWidth * 4, y: frameHeight * 2, index: 14 }, // Frame 15
     { x: 0, y: frameHeight * 3, index: 15 }, // Frame 16
 ];
-
 
 let emojiPositionX = (x) - 45;
 let emojiPositionY = (y + (y / 2)) - 45;
@@ -261,16 +259,41 @@ function fadeAwayText(firstText) {
 // Work for sprite sheet start from here
 ////////////////////////////////////////
 ////////////////////////////////////////
-
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
 window.onload = function () {
-    canvas.addEventListener('touchstart', handleTouchStart);
-    canvas.addEventListener('touchmove', handleTouchMove);
-    canvas.addEventListener('touchend', handleTouchEnd);
-    recentSelectedSheet = neutralSheet;
-    directionIndex = 0;
-    sheetChanged = neutralSheet;
-    startAnimationLoop(neutralSheet, 0);
+    document.fonts.add(fontToLoad);
+    fontToLoad.load().then(() => {
+    initializeGame();
+    }).catch((error) => {
+    console.error(`Failed to load the font '${fontToLoad.family}': ${error}`);
+    });
+
+}
+
+function initializeGame() {
+    if (isMobileDevice()) {
+        canvas.addEventListener('touchstart', handleTouchStart);
+        canvas.addEventListener('touchmove', handleTouchMove);
+        canvas.addEventListener('touchend', handleTouchEnd);
+        recentSelectedSheet = neutralSheet;
+        directionIndex = 0;
+        sheetChanged = neutralSheet;
+        startAnimationLoop(neutralSheet, 0);
+    } else {
+        // User is on a desktop
+        ctx.font = '500 30px Lexend';
+        ctx.lineHeight = 38;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.textAlign = 'center';    
+        // Draw the text on the canvas
+        ctx.fillText(openOnDesktop, x, (y -30));
+        // Set the font properties
+        ctx.font = '400 20px Lexend';
+        ctx.lineHeight = 25;
+    }   
 }
 
 function handleClick(clickX, clickY){
@@ -341,7 +364,7 @@ function drawSkipTutorialButton(){
     ctx.drawImage(skipTutorialPng, config[0].xPosition, config[0].yPosition, config[0].width, config[0].height);
 }
 
-function drawNextButton(){
+function drawNextButton(){       
     ctx.font = '400 20px Lexend';
     ctx.fillStyle = '#0085FF';
     ctx.textAlign = 'right';
@@ -461,9 +484,8 @@ function drawThirdScreen(){
     drawNextButton();
     showText(text5, text6,2);
 }
-
+  
 function drawFrame(index, spriteSheet) {
-
     if(!textHide && recentScreen === 3){
         ctx.clearRect(emoji[0].x, emoji[0].y, frameWidth, frameHeight);
     }
@@ -846,8 +868,6 @@ function calculateFramePositon(startX, startY, endX, endY, frameX, frameY) {
 ///////////////////////////////////////
 ///////////////////////////////////////
 
-
-
 // Animate Sprite Sheet start When not Dragging
 ///////////////////////////////////////////////
 ///////////////////////////////////////////////
@@ -928,10 +948,6 @@ function stopAnimationLoop() {
 // Code for Popup start from here
 /////////////////////////////////
 /////////////////////////////////
-
-const modal = document.getElementById('myModal');
-const closeBtn = modal.querySelector(".close");
-const undoBtn = modal.querySelector(".undo");
 
 closeBtn.addEventListener("click", closeButtonClick);
 undoBtn.addEventListener("click", undoButtonClick);
