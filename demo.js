@@ -5,7 +5,7 @@ const text4 = 'is negative, poor, bad'
 const text5 = 'right'
 const text6 = 'is positive, great, good'
 const text7 = 'how are you feeling?'
-const openOnDesktop = 'Use mobile to play this game';
+const openOnDesktop = 'you must be using a mobile device.';
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
