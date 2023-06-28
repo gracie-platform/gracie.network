@@ -127,7 +127,7 @@
 
     <div class="inner-container flex-col justify-center" style="max-width: 500px;">
       <header>
-        <a href="https://gracie.network/index.html">
+        <a href="https://gracie.network/index">
           <img src="https://gracie.network/img/gracie-black-02.svg" alt="" style="height: 40px;">
         </a>
       </header>
@@ -143,7 +143,7 @@
     <div class="inner-container w-screen bottom-container flex-col gap-3" style="background-color: #eee;">
 
       <div class="retry-container w-full">
-        <a href="https://gracie.network/index.html" class="button-10">
+        <a href="https://gracie.network/index" class="button-10">
           Go Home
         </a>
       </div>
@@ -154,7 +154,7 @@
       </section>
 
       <div class="w-full container-sm  flex gap-2 justify-around">
-        <a href="https://gracie.network/index.html">Home</a>
+        <a href="https://gracie.network/index">Home</a>
         <p class="center"> &copy; </span> Gracie <span id="copyright-year"></span></p>
       </div>
     </div>
