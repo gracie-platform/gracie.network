@@ -9,7 +9,7 @@ var id = null
 const fullHeight = 320;
 const speed = 4;
 
-fetch('./header.html')
+fetch('./header')
   .then(response => response.text())
   .then(data => {
     headerDiv.innerHTML = data;
@@ -92,7 +92,7 @@ fetch('./header.html')
     })
   });
   
-fetch('./footer.html')
+fetch('./footer')
   .then(response => response.text())
   .then(data => {
     footerDiv.innerHTML = data;

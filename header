@@ -4,16 +4,13 @@
   </div>
   <div id="menuContent-outer">
     <div>
-      <a href="index.html" class="button-10">Home</a>
-    </div>
-    <div>
-      <a href="about.html" class="button-10">About</a>
+      <a href="index" class="button-10">Home</a>
     </div>
     <div>
       <a href="demo" class="button-10">Demo</a>
     </div>
     <div>
-      <a href="team.html" class="button-10">Team</a>
+      <a href="team" class="button-10">Team</a>
     </div>
     <div>
       <a target="_blank" href="https://docs.google.com/document/d/1DuMF8zlCzQ6R1CG3bmdbFycIER9VclhS70pLY_FZ1sg"
