@@ -1,5 +1,5 @@
-const text1 = 'Swipe'
-const text2 = 'To share your satisfaction'
+const text1 = 'Tutorial'
+const text2 = 'Swipe to share your satisfaction'
 const text3 = 'Left'
 const text4 = 'Is negative, poor or bad'
 const text5 = 'Right'
