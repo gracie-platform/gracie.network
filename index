@@ -48,7 +48,7 @@
 
     <section id="section2" class="common-section container h-screen grid justify-between items-center index-section">
       <div class="left flex justify-center">
-        <img class="" src="img/index/help.png" alt="image">
+        <img class="" src="./img/index/help.png" alt="image">
       </div>
       <div class="right">
         <h2 class="section-title">“Asking people whether they are happy, or satisfied with their lives, offers important information about the society. It can signal underlying crises or hidden strengths. It can suggest the need for change.”</h2>

@@ -12,11 +12,11 @@
     <div>
       <h5 class="links-title">Navigation</h5>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="demo">Demo</a></li>
-        <li><a href="token.html">Token</a></li>
-        <li><a href="team.html">Team</a></li>
+        <li><a href="https://gracie.network">Home</a></li>
+        <li><a href="./about">Our Values</a></li>
+        <li><a href="./demo">Demo</a></li>
+        <li><a href="./token">Token</a></li>
+        <li><a href="./team">Team</a></li>
         <li><a target="_blank"
             href="https://docs.google.com/document/d/1DuMF8zlCzQ6R1CG3bmdbFycIER9VclhS70pLY_FZ1sg">Whitepaper</a></li>
         <li><a target="_blank"
@@ -43,7 +43,7 @@
     </div>
   </div>
   <div class="footer-logo">
-    <a href="index.html">
+    <a href="https://gracie.network/index">
       <img src="./img/gracie-black-02.svg" height="400px" alt="logo">
     </a>
   </div>
