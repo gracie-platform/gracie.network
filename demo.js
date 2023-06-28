@@ -1,11 +1,11 @@
-const text1 = 'swipe'
-const text2 = 'to share your satisfaction'
-const text3 = 'left'
-const text4 = 'is negative, poor, bad'
-const text5 = 'right'
-const text6 = 'is positive, great, good'
-const text7 = 'how are you feeling?'
-const openOnDesktop = 'use a mobile device to visit: gracie.network/demo';
+const text1 = 'Swipe'
+const text2 = 'To share your satisfaction'
+const text3 = 'Left'
+const text4 = 'Is negative, poor or bad'
+const text5 = 'Right'
+const text6 = 'Is positive, great or good'
+const text7 = 'How are you feeling?'
+const openOnDesktop = 'Use a mobile device to visit: gracie.network/demo';
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
