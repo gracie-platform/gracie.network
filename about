@@ -22,7 +22,7 @@
       </div>
       <div class="about-hero-container container">
         <div class="hero-left about-left left">
-          <img src="img/about/phone.png">
+          <img src="./img/about/phone.png">
           <h1 class="hero-title service-heading"></h1>
         </div>
         <div class="hero-right about-right right">
@@ -40,7 +40,7 @@
         <div class="about-section-header about-service-header">
           <h1>services</h1>
         </div>
-        <div class="about-header-icon"><img src="img/icons/plus-icon.png"></div>
+        <div class="about-header-icon"><img src="./img/icons/plus-icon.png"></div>
       </div>
       <div class="about-services-card-container">
         <div class="about-service-card">
@@ -72,7 +72,7 @@
         <div class="about-section-header about-values-header">
           <h1>values</h1>
         </div>
-        <div class="about-header-icon"><img src="img/icons/plus-icon.png"></div>
+        <div class="about-header-icon"><img src="./img/icons/plus-icon.png"></div>
       </div>
       <div class="values-content">
         <div class="values-text">
@@ -81,7 +81,7 @@
             We strive to be honorable and graceful with our actions and words, to tread carefully and ensure what we leave behind in legacy is only good.
           </p>
         </div>
-        <div class="values-image"><img src="img/about/values.png"></div>
+        <div class="values-image"><img src="./img/about/values.png"></div>
       </div>
     </section>
 
@@ -90,10 +90,10 @@
         <div class="about-section-header about-vision-header">
           <h1>vision</h1>
         </div>
-        <div class="about-header-icon"><img src="img/icons/plus-icon.png"></div>
+        <div class="about-header-icon"><img src="./img/icons/plus-icon.png"></div>
       </div>
       <div class="vision-content">
-        <div class="vision-image"><img src="img/about/vision.png"></div>
+        <div class="vision-image"><img src="./img/about/vision.png"></div>
         <div class="vision-text">
           <h1 class="vision-title">CONNECT WITH EVERYONE'S EMOTIONS</h1>
           <p class="vision-body">
@@ -108,7 +108,7 @@
         <div class="about-section-header about-mission-header">
           <h1>mission</h1>
         </div>
-        <div class="about-header-icon"><img src="img/icons/plus-icon.png"></div>
+        <div class="about-header-icon"><img src="./img/icons/plus-icon.png"></div>
       </div>
       <div class="mission-content">
         <div class="mission-text">
@@ -118,7 +118,7 @@
             emotions so they can build products to support your feelings.
           </p>
         </div>
-        <div class="mission-image"><img src="img/about/mission.png"></div>
+        <div class="mission-image"><img src="./img/about/mission.png"></div>
       </div>
     </section>
 
