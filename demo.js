@@ -5,7 +5,7 @@ const text4 = 'is negative, poor, bad'
 const text5 = 'right'
 const text6 = 'is positive, great, good'
 const text7 = 'how are you feeling?'
-const openOnDesktop = 'you must be using a mobile device.';
+const openOnDesktop = 'use a mobile device to visit: gracie.network/demo';
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
