@@ -28,11 +28,11 @@
       <div class="modal-content">
         <div class="modal-text">
           <span > 
-            <img src="./assets/undo.png" class="undo">
+          <img src="./assets/undo.png" class="undo">
           </span>
-          <!-- <span > 
-          <img src="./assets/close.png" class="close">
-          </span> -->
+          <span > 
+          <!-- <img src="./assets/close.png" class="close"> -->
+          </span>
           <h1>Thanks</h1>
         </div>
       </div>

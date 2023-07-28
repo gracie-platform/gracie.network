@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
   <div class="menuBtn-outer fixed">
   <div class="menuBtn-container">
     <button id="menuBtn" class="button-10">Menu</button>
@@ -22,5 +21,3 @@
 </div>
 
 <div id="menu-outer" class="menu-outer-blur"></div>
-
-</html>

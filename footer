@@ -13,7 +13,8 @@
       <h5 class="links-title">Navigation</h5>
       <ul>
         <li><a href="https://gracie.network">Home</a></li>
-        <li><a href="./about">Our Values</a></li>
+        <li><a href="./about">Values</a></li>
+        <li><a href="./overview">About</a></li>
         <li><a href="./demo">Demo</a></li> 
         <li><a href="./token">Token</a></li>
         <li><a href="./team">Team</a></li>
