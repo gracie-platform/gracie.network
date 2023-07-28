@@ -1,4 +1,4 @@
-<div class="h-full container flex-col justify-center">
+  <div class="h-full container flex-col justify-center">
   <div class="newsletter items-center">
     <h4>Get Platform Updates in Your Inbox</h4>
     <form action="https://us-central1-propane-tribute-331819.cloudfunctions.net/news_sub" target="_blank" method="post">
