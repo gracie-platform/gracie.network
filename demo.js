@@ -53,10 +53,10 @@ const skipButtonHeight = 30;
 const fontToLoad = new FontFace('Lexend', 'url(font/Lexend-VariableFont_wght.ttf)');
 
 const config = [
-    {xPosition: canvas.width-20-10, yPosition: 10, width: 20, height: 20, }, // For Skip Tutorial button
-    {xPosition: canvas.width-20-10, yPosition: canvas.height-20-10, width: 20, height: 20, }, // For Next Button
-    {xPosition: -10, yPosition: y+50, width: 92, height: 87, }, // For Sad Eomji
-    {xPosition: canvas.width-77 , yPosition: y+50, width: 92, height: 87, }, // For Happy Emoji
+    { xPosition: canvas.width - 20 - 10, yPosition: 10, width: 20, height: 20, }, // For Skip Tutorial button
+    { xPosition: canvas.width - 20 - 10, yPosition: canvas.height - 20 - 10, width: 20, height: 20, }, // For Next Button
+    { xPosition: -10, yPosition: y + 50, width: 92, height: 87, }, // For Sad Eomji
+    { xPosition: canvas.width - 77, yPosition: y + 50, width: 92, height: 87, }, // For Happy Emoji
 ]
 
 // Variables for state positions
@@ -85,7 +85,7 @@ const rightEndX = 0;
 const rightEndY = canvas.height;
 
 const modal = document.getElementById('myModal');
-const closeBtn = modal.querySelector(".close");
+// const closeBtn = modal.querySelector(".close");
 const undoBtn = modal.querySelector(".undo");
 
 const directionAndIndex = [
@@ -150,77 +150,77 @@ let recentScreen = 0;
 
 function showText(firstText, secondText, screen) {
     // Set the font properties
-    if(screen === 0){
+    if (screen === 0) {
         ctx.font = '500 30px Lexend';
         ctx.lineHeight = 38;
         ctx.fillStyle = '#FFFFFF';
-        ctx.textAlign = 'center';    
+        ctx.textAlign = 'center';
         // Draw the text on the canvas
-        ctx.fillText(firstText, x, (y -30));
+        ctx.fillText(firstText, x, (y - 30));
         // Set the font properties
         ctx.font = '400 20px Lexend';
         ctx.lineHeight = 25;
-        
-        ctx.fillText(secondText, x,y);
+
+        ctx.fillText(secondText, x, y);
     }
-    else if(screen === 1){
+    else if (screen === 1) {
         ctx.font = '500 30px Lexend';
         ctx.lineHeight = 38;
         ctx.fillStyle = '#FFFFFF';
         ctx.textAlign = 'left';
         // ctx.textBaseline = 'middle';
-    
-    
+
+
         // Draw the text on the canvas
-        ctx.fillText(firstText, 57, (y -30));
+        ctx.fillText(firstText, 57, (y - 30));
         // Set the font properties
         ctx.font = '400 20px Lexend';
         ctx.lineHeight = 25;
-      
+
         ctx.fillText(secondText, 57, y);
     }
-    else if(screen === 2){
+    else if (screen === 2) {
         ctx.font = '500 30px Lexend';
         ctx.lineHeight = 38;
         ctx.fillStyle = '#FFFFFF';
         ctx.textAlign = 'right';
-    
-    
+
+
         // Draw the text on the canvas
-        ctx.fillText(firstText, canvas.width-57, (y-30));
+        ctx.fillText(firstText, canvas.width - 57, (y - 30));
         // Set the font properties
         ctx.font = '400 20px Lexend';
         ctx.lineHeight = 25;
-      
-        ctx.fillText(secondText, canvas.width-57, y);
+
+        ctx.fillText(secondText, canvas.width - 57, y);
     }
-    else if(screen === 3){
+    else if (screen === 3) {
         ctx.font = '500 30px Lexend';
         ctx.lineHeight = 38;
         ctx.fillStyle = '#FFFFFF';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        
-    
+
+
         // Draw the text on the canvas
-        ctx.fillText(firstText, x, (y-10));
+        ctx.fillText(firstText, x, (y - 10));
     }
 
-  
+
 }
 
 function fadeAwayText(firstText) {
     // Define the fade duration in milliseconds
     textShown = false;
     const fadeDuration = 600;
-  
+
     // Calculate the opacity change per frame
     const opacityChange = 1 / (fadeDuration / 16.67); // Assuming 60 FPS (1000ms / 60 = 16.67ms)
-  
+
     // Set the initial opacity
     let opacity = 1;
-    let font  = 30;
-  
+    let font = 30;
+
     // Create an interval to update the opacity
     const intervalId = setInterval(() => {
         // Reduce the opacity by the change amount
@@ -239,14 +239,14 @@ function fadeAwayText(firstText) {
 
         // Draw the text on the canvas with the current opacity
 
-        font = font-.50;
+        font = font - .50;
 
         // ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
         // Draw the text on the canvas
-        ctx.fillText(firstText, x, (y-10));
+        ctx.fillText(firstText, x, (y - 10));
         // Check if the opacity has reached 0 (fully faded away)
         if (opacity <= 0) {
             // Stop the interval
@@ -266,9 +266,9 @@ function isMobileDevice() {
 window.onload = function () {
     document.fonts.add(fontToLoad);
     fontToLoad.load().then(() => {
-    initializeGame();
+        initializeGame();
     }).catch((error) => {
-    console.error(`Failed to load the font '${fontToLoad.family}': ${error}`);
+        console.error(`Failed to load the font '${fontToLoad.family}': ${error}`);
     });
 
 }
@@ -287,62 +287,62 @@ function initializeGame() {
         ctx.font = '500 30px Lexend';
         ctx.lineHeight = 38;
         ctx.fillStyle = '#FFFFFF';
-        ctx.textAlign = 'center';    
+        ctx.textAlign = 'center';
         // Draw the text on the canvas
-        ctx.fillText(openOnDesktop, x, (y -30));
+        ctx.fillText(openOnDesktop, x, (y - 30));
         // Set the font properties
         ctx.font = '400 20px Lexend';
         ctx.lineHeight = 25;
-    }   
+    }
 }
 
-function handleClick(clickX, clickY){
+function handleClick(clickX, clickY) {
     // This will check that click is happend on skip tutorial button or not
     if (
-      clickX >= canvas.width/2 &&
-      clickX <= canvas.width &&
-      clickY >= 0 &&
-      clickY <= 97
+        clickX >= canvas.width / 2 &&
+        clickX <= canvas.width &&
+        clickY >= 0 &&
+        clickY <= 97
     ) {
-      // Button clicked! Handle the button click event here
-      recentScreen = 3;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      startAnimationLoop(recentSelectedSheet,0);
+        // Button clicked! Handle the button click event here
+        recentScreen = 3;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        startAnimationLoop(recentSelectedSheet, 0);
     }
     // This will check that click is happend on next button or not
     else if (
-        clickX >= canvas.width/2 &&
+        clickX >= canvas.width / 2 &&
         clickX <= canvas.width &&
-        clickY >= canvas.height-97 &&
+        clickY >= canvas.height - 97 &&
         clickY <= canvas.height
-      ) {
+    ) {
         // Button clicked! Handle the button click event here
         recentScreen++;
-        if(recentScreen === 3){
+        if (recentScreen === 3) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
-        startAnimationLoop(recentSelectedSheet,0);
+        startAnimationLoop(recentSelectedSheet, 0);
     }
 }
 
 // Function to draw the frames on the canvas
-function snapBack(){
+function snapBack() {
     const spring = 18;
     const toleranceDistance = 18;
     const targetX = emojiPositionX; // Start position X
     const targetY = emojiPositionY; // Start position Y
-    
+
     const dx = targetX - selectedFrame.x;
     const dy = targetY - selectedFrame.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
-    if(distance > toleranceDistance){
+    if (distance > toleranceDistance) {
         const vx = (dx / distance) * spring; // Velocity in X direction
         const vy = (dy / distance) * spring; // Velocity in Y direction
         selectedFrame.x += vx;
         selectedFrame.y += vy;
     }
-    else{
+    else {
         startSnapBack = false;
         selectedFrame.x = emojiPositionX;
         selectedFrame.y = emojiPositionY;
@@ -355,41 +355,41 @@ function snapBack(){
     }
 }
 
-function drawSkipTutorialButton(){
+function drawSkipTutorialButton() {
     ctx.font = '400 20px Lexend';
     ctx.fillStyle = '#0085FF';
     ctx.textAlign = 'right';
     ctx.textBaseline = 'bottom';
-    ctx.fillText('Skip', config[0].xPosition-10, config[0].yPosition+19);
+    ctx.fillText('Skip', config[0].xPosition - 10, config[0].yPosition + 19);
     ctx.drawImage(skipTutorialPng, config[0].xPosition, config[0].yPosition, config[0].width, config[0].height);
 }
 
-function drawNextButton(){       
+function drawNextButton() {
     ctx.font = '400 20px Lexend';
     ctx.fillStyle = '#0085FF';
     ctx.textAlign = 'right';
     ctx.textBaseline = 'bottom';
-    ctx.fillText('Next', config[1].xPosition-10, config[1].yPosition+19);
+    ctx.fillText('Next', config[1].xPosition - 10, config[1].yPosition + 19);
     ctx.drawImage(nextButtonPng, config[1].xPosition, config[1].yPosition, config[1].width, config[1].height);
 }
 
-function drawSadEmoji(){
+function drawSadEmoji() {
     const index = 13;
     const frameX = emoji[index].x;
     const frameY = emoji[index].y;
     const coordinates = [
-        { x: 70, y: config[2].yPosition + (config[2].height / 2) -15 },
+        { x: 70, y: config[2].yPosition + (config[2].height / 2) - 15 },
         { x: config[2].xPosition + (config[2].width / 2) + 95, y: config[2].yPosition + (config[2].height / 2) + 45 },
         { x: config[2].xPosition + (config[2].width / 2) + 80, y: config[2].yPosition + (config[2].height / 2) + 65 },
-        { x: 25, y: config[2].yPosition + config[2].height-10 },
-      ];
+        { x: 25, y: config[2].yPosition + config[2].height - 10 },
+    ];
 
     // Find the leftmost and rightmost x-coordinates of the polygon
     let minX = Infinity;
     let maxX = -Infinity;
     coordinates.forEach((point) => {
-    minX = Math.min(minX, point.x);
-    maxX = Math.max(maxX, point.x);
+        minX = Math.min(minX, point.x);
+        maxX = Math.max(maxX, point.x);
     });
 
     // Create a linear gradient from left to right
@@ -417,24 +417,24 @@ function drawSadEmoji(){
     ctx.drawImage(sadSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), config[2].xPosition, config[2].yPosition, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
 }
 
-function drawHappyEmoji(){
+function drawHappyEmoji() {
     const index = 11;
     const frameX = emoji[index].x;
     const frameY = emoji[index].y;
 
     const coordinates = [
-        { x: config[3].xPosition+8, y: config[3].yPosition + (config[3].height / 2) -15 },
-        { x: config[3].xPosition-48, y: config[3].yPosition + (config[3].height / 2) + 45 },
-        { x: config[3].xPosition-33, y: config[3].yPosition + (config[3].height / 2) + 65 },
-        { x: config[3].xPosition+65, y: config[3].yPosition + config[3].height-10 },
-      ];
+        { x: config[3].xPosition + 8, y: config[3].yPosition + (config[3].height / 2) - 15 },
+        { x: config[3].xPosition - 48, y: config[3].yPosition + (config[3].height / 2) + 45 },
+        { x: config[3].xPosition - 33, y: config[3].yPosition + (config[3].height / 2) + 65 },
+        { x: config[3].xPosition + 65, y: config[3].yPosition + config[3].height - 10 },
+    ];
 
     // Find the leftmost and rightmost x-coordinates of the polygon
     let minX = Infinity;
     let maxX = -Infinity;
     coordinates.forEach((point) => {
-    minX = Math.min(minX, point.x);
-    maxX = Math.max(maxX, point.x);
+        minX = Math.min(minX, point.x);
+        maxX = Math.max(maxX, point.x);
     });
 
     // Create a linear gradient from left to right
@@ -467,33 +467,33 @@ function drawHappyEmoji(){
 
 }
 
-function drawFirstScreen(){
+function drawFirstScreen() {
     drawSkipTutorialButton();
     drawNextButton();
-    showText(text1, text2,0);
+    showText(text1, text2, 0);
 }
 
-function drawSecondScreen(){
+function drawSecondScreen() {
     drawSadEmoji();
     drawNextButton();
-    showText(text3, text4,1);
+    showText(text3, text4, 1);
 }
 
-function drawThirdScreen(){
+function drawThirdScreen() {
     drawHappyEmoji();
     drawNextButton();
-    showText(text5, text6,2);
+    showText(text5, text6, 2);
 }
-  
+
 function drawFrame(index, spriteSheet) {
-    if(!textHide && recentScreen === 3){
+    if (!textHide && recentScreen === 3) {
         ctx.clearRect(emoji[0].x, emoji[0].y, frameWidth, frameHeight);
     }
-    else{
+    else {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
-    if(recentScreen === 0){
+    if (recentScreen === 0) {
         drawFirstScreen();
         let frameX = emoji[index].x;
         let frameY = emoji[index].y;
@@ -510,25 +510,25 @@ function drawFrame(index, spriteSheet) {
                 emoji[0].y = frameY;
             }
         }
-        if(!modalDisplay){
-            if(index === 0){
+        if (!modalDisplay) {
+            if (index === 0) {
                 frameX = 0;
                 frameY = 0;
             }
             ctx.drawImage(spriteSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), emoji[0].x, emoji[0].y, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
         }
     }
-    else if(recentScreen === 1){
+    else if (recentScreen === 1) {
         drawSecondScreen();
     }
-    else if(recentScreen === 2){
+    else if (recentScreen === 2) {
         drawThirdScreen();
     }
-    else if(recentScreen === 3){
-        if(textShown){
-            showText(text7, '',3);
+    else if (recentScreen === 3) {
+        if (textShown) {
+            showText(text7, '', 3);
         }
-        if(backgroundShow){
+        if (backgroundShow) {
             ctx.drawImage(shadow, x - 161, emojiPositionY - 195, 320, 450);
         }
         let frameX = emoji[index].x;
@@ -549,17 +549,17 @@ function drawFrame(index, spriteSheet) {
                 emoji[0].y = frameY;
             }
         }
-        if(!modalDisplay){
-            if(index === 0){
+        if (!modalDisplay) {
+            if (index === 0) {
                 frameX = 0;
                 frameY = 0;
             }
             ctx.drawImage(spriteSheet, frameX + leftPadding, frameY + topPadding, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding), emoji[0].x, emoji[0].y, frameWidth - (leftPadding + rightPadding), frameHeight - (topPadding + bottomPadding));
         }
     }
-    if(recentScreen <=2){
+    if (recentScreen <= 2) {
         stopAnimationLoop();
-    }  
+    }
 }
 
 function setFrameIndexForSad(gap) {
@@ -621,7 +621,7 @@ function setFrameIndexForSad(gap) {
     else if (position <= frameThirteen && position >= 0) {  // Frame Thirteen
         frameIndex = 13;
     }
-    else if(position <= -10){
+    else if (position <= -10) {
         reached = true;
     }
     drawFrame(frameIndex, recentSelectedSheet);
@@ -682,7 +682,7 @@ function setFrameIndexForHappy(gap) {
     else if (position >= frameEleven && position + 90 < canvas.width) { // Frame Eleven
         frameIndex = 11;
     }
-    else if(position+88 >= canvas.width+10) {
+    else if (position + 88 >= canvas.width + 10) {
         reached = true;
     }
     drawFrame(frameIndex, recentSelectedSheet);
@@ -727,7 +727,7 @@ function setFrameStats() {
         if (selectedFrame.x + 45 < x && fromLeftDiagonal === 'left') { // For Sad
             recentSelectedSheet = sadSheet;
             directionIndex = 2;
-            if(animationInterval){
+            if (animationInterval) {
                 stopAnimationLoop();
             }
             let distanceGap = distanceFromLeft / 14;
@@ -737,7 +737,7 @@ function setFrameStats() {
         else if (selectedFrame.x + 45 >= x && fromRightDiagonal === 'right') { // For Happy
             recentSelectedSheet = happySheet;
             directionIndex = 1;
-            if(animationInterval){
+            if (animationInterval) {
                 stopAnimationLoop();
             }
             let distanceGap = distanceFromRight / 12;
@@ -768,12 +768,12 @@ function handleTouchStart(event) {
     const touch = event.touches[0];
     const touchX = touch.clientX - canvas.offsetLeft; // Adjust for canvas position
     const touchY = touch.clientY - canvas.offsetTop;
-    if(recentScreen <= 2){
+    if (recentScreen <= 2) {
         handleClick(touchX, touchY);
     }
 
-    if(!modalDisplay && recentScreen === 3){
- // Adjust for canvas position
+    if (!modalDisplay && recentScreen === 3) {
+        // Adjust for canvas position
         selectedFrame = findSelectedFrame(touchX, touchY);
         if (selectedFrame && !modalDisplay) {
             isDragging = true;
@@ -787,7 +787,7 @@ function handleTouchStart(event) {
 function handleTouchMove(event) {
     event.preventDefault(); // Prevent default touchmove behavior
     if (isDragging && selectedFrame) {
-        if(textShown){
+        if (textShown) {
             fadeAwayText(text7);
         }
         backgroundShow = false;
@@ -796,8 +796,8 @@ function handleTouchMove(event) {
         const touchY = touch.clientY - canvas.offsetTop; // Adjust for canvas position
 
 
-        selectedFrame.x = Math.max(-10, Math.min(selectedFrame.x, canvas.width - (frameWidth - (leftPadding + rightPadding))+10));
-        selectedFrame.y = Math.max(-10, Math.min(selectedFrame.y, canvas.height - (frameHeight - (topPadding + bottomPadding))+10));
+        selectedFrame.x = Math.max(-10, Math.min(selectedFrame.x, canvas.width - (frameWidth - (leftPadding + rightPadding)) + 10));
+        selectedFrame.y = Math.max(-10, Math.min(selectedFrame.y, canvas.height - (frameHeight - (topPadding + bottomPadding)) + 10));
         const deltaX = touchX - prevTouchX;
         const deltaY = touchY - prevTouchY;
 
@@ -814,12 +814,12 @@ function handleTouchMove(event) {
 // Function to handle touchend event
 function handleTouchEnd(event) {
     event.preventDefault();
-    if(selectedFrame != null){
-        if(recentSelectedSheet === scaredSheet){
+    if (selectedFrame != null) {
+        if (recentSelectedSheet === scaredSheet) {
             recentSelectedSheet = screamSheet;
             directionIndex = 4;
         }
-        else{
+        else {
             recentSelectedSheet = neutralSheet;
             directionIndex = 0;
         }
@@ -831,7 +831,7 @@ function handleTouchEnd(event) {
         changingDirection = false;
         startSnapBack = true;
         isDragging = false;
-        if(!modalDisplay){
+        if (!modalDisplay) {
             timeInterval = 30;
             stopAnimationLoop();
             startAnimationLoop(recentSelectedSheet, directionIndex);
@@ -899,9 +899,9 @@ function animateFrame() {
 
 // Function will update the frame
 function updateFrame() {
-    if(recentSelectedSheet != neutralSheet){
+    if (recentSelectedSheet != neutralSheet) {
         neutralFrameCounter++;
-        if(neutralFrameCounter >= 2){
+        if (neutralFrameCounter >= 2) {
             neutralFrameCounter = 0;
             frameIndex++;
         }
@@ -909,17 +909,17 @@ function updateFrame() {
             frameIndex = 0;
         }
     }
-    else{
-        if(frameIndex === 3 || frameIndex === 4 || frameIndex === 5){
+    else {
+        if (frameIndex === 3 || frameIndex === 4 || frameIndex === 5) {
             neutralFrameCounter++;
-            if(neutralFrameCounter >= 3){
+            if (neutralFrameCounter >= 3) {
                 neutralFrameCounter = 0;
                 frameIndex++;
             }
         }
-        else{
+        else {
             neutralFrameCounter++;
-            if(neutralFrameCounter >= 7){
+            if (neutralFrameCounter >= 7) {
                 neutralFrameCounter = 0;
                 frameIndex++;
             }
@@ -949,7 +949,7 @@ function stopAnimationLoop() {
 /////////////////////////////////
 /////////////////////////////////
 
-closeBtn.addEventListener("click", closeButtonClick);
+// closeBtn.addEventListener("click", closeButtonClick);
 undoBtn.addEventListener("click", undoButtonClick);
 
 function showModal() {
@@ -961,11 +961,11 @@ function showModal() {
 }
 
 // Function to close the modal
-function closeButtonClick() {
-    stopAnimationLoop();
-    modal.style.display = "none";
-    window.close();
-}
+// function closeButtonClick() {
+//     stopAnimationLoop();
+//     modal.style.display = "none";
+//     window.close();
+// }
 
 // Function to handle undo button click
 function undoButtonClick() {
