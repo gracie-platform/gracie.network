@@ -37,7 +37,7 @@
     <section id="section1" class="common-section container h-screen grid justify-between items-center index-section">
       <div class="left">
         <h2 class="section-title">What is Gracie?</h2>
-        <p class="section-subtitle">We are a global happiness index, building on Ethereum. We pay our users to tell us how they are feeling and allow them to monetize their emotional data through our network with content providers and organizations.</p>
+        <p class="section-subtitle">We are an Emotional State Analyzer and Recommendation Engine, building on Ethereum using Zero-Knowledge Proof Architecture. We pay our users to tell us how they are feeling and allow them to monetize their emotional data through our platform with content providers for a more personalized worldly experience.</p>
       </div>
       <div class="right flex justify-center">
         <div class="container-video">
