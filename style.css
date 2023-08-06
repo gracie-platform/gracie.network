@@ -1076,6 +1076,11 @@ ul li a:hover {
     align-self: self-start;
   }
 
+  .section-title {
+    margin-top: 2px;
+    font-size: 22px;
+  }
+
   .section-subtitle {
     margin-top: 2px;
     font-size: 18px;
