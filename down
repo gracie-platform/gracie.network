@@ -95,6 +95,11 @@
       .error-img {
         transform: translate(150px, -17vh);
       }
+
+      .retry-container {
+        top: -100px;
+      }
+
     }
 
     @media only screen and (min-width: 1000px) {
