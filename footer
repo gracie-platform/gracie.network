@@ -14,16 +14,16 @@
       <ul>
         <li><a href="https://gracie.network">Home</a></li>
         <li><a href="./about">Values</a></li>
-        <li><a href="./overview">About</a></li>
+        <!-- <li><a href="./overview">About</a></li> -->
         <li><a href="./demo">Demo</a></li> 
-        <li><a href="./token">Token</a></li>
+        <!-- <li><a href="./token">Token</a></li> -->
         <li><a href="./team">Team</a></li>
         <li><a target="_blank"
             href="https://docs.google.com/document/d/1DuMF8zlCzQ6R1CG3bmdbFycIER9VclhS70pLY_FZ1sg">Whitepaper</a></li>
         <li><a target="_blank"
             href="https://drive.google.com/drive/folders/1IBSzinAbcQrWyIeVWMUzS8G2mfn88F1n?usp=sharing">Media Kit</a></li>
-            <li><a target="_blank"
-              href="https://docs.google.com/forms/d/e/1FAIpQLScPcQMEc0eACaOkp4eC91yODthDp5XYxRmon3ggFOxcww_VbA/viewform?">Token Sale</a></li>
+        <!-- <li><a target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLScPcQMEc0eACaOkp4eC91yODthDp5XYxRmon3ggFOxcww_VbA/viewform?">Token Sale</a></li> -->
       </ul>
     </div>
     <div>
@@ -32,8 +32,7 @@
         <li><a target="_blank" href="https://discord.gg/t3956PzfyF">Discord</a></li>
         <li><a target="_blank" href="https://twitter.com/gracie_network">Twitter</a></li>
         <li><a target="_blank" href="https://www.linkedin.com/company/gracie-network/">Linkedin</a></li>
-        <li><a target="_blank"
-          href="https://snapshot.org/#/gracienetwork.eth">Governance</a></li>
+        <!-- <li><a target="_blank" href="https://snapshot.org/#/gracienetwork.eth">Governance</a></li> -->
       </ul>
     </div>
     <div>

@@ -17,7 +17,7 @@
     <section class="about-hero">
       <div class="about-header">
         <div class="container">
-          <h1>About</h1>
+          <h1>Values</h1>
         </div>
       </div>
       <div class="about-hero-container container">
@@ -26,7 +26,7 @@
           <h1 class="hero-title service-heading"></h1>
         </div>
         <div class="hero-right about-right right">
-          <h1 class="hero-title service-heading">WE HELP ORGANIZATIONS CONNECT WITH PEOPLE</h1>
+          <h1 class="hero-title service-heading">Helping Organizations Connect With People</h1>
           <p>
             Gracie is an open platform and happiness index that helps cultivate happier and more productive organizations by incentivizing the collection of personal satisfaction data and
             connecting users with services.
@@ -35,7 +35,7 @@
       </div>
     </section>
 
-    <section class="about-services container">
+    <!-- <section class="about-services container">
       <div class="about-section-header-wrapper">
         <div class="about-section-header about-service-header">
           <h1>services</h1>
@@ -65,7 +65,7 @@
           </p>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section class="about-values container">
       <div class="about-section-header-wrapper values-header-container">
@@ -112,7 +112,7 @@
       </div>
       <div class="mission-content">
         <div class="mission-text">
-          <h1 class="mission-title">INCREASE EMOTIONAL AWARENESS AND INTELLIGENCE GLOBALLY</h1>
+          <h1 class="mission-title">INCREASE EMOTIONAL INTELLIGENCE GLOBALLY</h1>
           <p class="mission-body">
             Cultivate a future of empathy, compassion, and support, by building a platform that connects others with your
             emotions so they can build products to support your feelings.
